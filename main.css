@@ -1,11 +1,47 @@
+body {
+    font-size: 1.5rem;
+    color:  white;
+    background-color: #3e8de3;
+}
+
 #topBar {
     /* CSS for the top bar container */
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.topBarButton {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+}
+
+.topBarButton:hover {
+    color: chocolate;
 }
 
 #container {
     /* CSS for the main container */
+    width: 100%;
+    display: block;
+    text-align: center;
 }
 
 #footer {
     /* CSS for the footer */
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid white;
+}
+
+.page {
+    text-align: center;
+    margin: 10px;
+    display: none;
 }

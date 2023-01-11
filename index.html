@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Job Sheets</title>
+        <title>Stapleton Cinema's</title>
         <!-- Custom fonts for this template-->
         <link href="general/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link
@@ -23,39 +23,39 @@
         <!-- body will consist of the top navigation bar, the footer at the bottom, the main page between the two which will be split up into seperate 'tabs' -->
         <!-- top nav bar -->
         <div id="topBar">
-            <div class="topBarButton">
+            <div class="tobBarButtonContainer">
                 <!-- container for button 1 -->
                 <!-- cinema logo here -->
-            </div>
-            <div class="topBarButton">
-                <!-- container for button 2 -->
-                <!-- buttons go here -->
-            </div>
-            <div class="topBarButton">
-                <!-- container for button 3 -->
-                <!-- search box goes here -->
+                <span>
+                    <a class="topBarButton" onclick="changeTab('page1')">Home</a>
+                    <a class="topBarButton" onclick="changeTab('page2')">Book</a>
+                    <a class="topBarButton" onclick="changeTab('page3')">Upcoming Films</a>
+                    <a class="topBarButton" onclick="changeTab('page4')">Offers and Gifts</a>
+                </span>
             </div>
         </div>
 
         <!-- container for main content -->
         <div id="container">
             <div class="page" id="page1">
-
+                <h2 class="title">Home page</h2>
             </div>
             <div class="page" id="page2">
-                
+                <h2 class="title">Make a Booking</h2>
             </div>
+            <!-- current films has been added to home page -->
             <div class="page" id="page3">
-                
+                <h2 class="title">Upcoming Films</h2>
             </div>
             <div class="page" id="page4">
-                
+                <h2 class="title">Offers and Gifts</h2>
             </div>
         </div>
 
         <div id="footer">
             <div class="thefooter">
                 <!-- This is where the footer data will go like the location, copyright and my name -->
+                <p>Footer Content</p>
             </div>
         </div>
     </body>
