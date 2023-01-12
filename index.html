@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Stapleton Cinema's</title>
+        <title>WS Films</title>
         <!-- Custom fonts for this template-->
         <link href="general/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link
@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <!-- Start of the page body -->
-    <body>
+    <body onload="changeTab('page1')">
         <!-- body will consist of the top navigation bar, the footer at the bottom, the main page between the two which will be split up into seperate 'tabs' -->
         <!-- top nav bar -->
         <div id="topBar">
@@ -27,11 +27,19 @@
                 <!-- container for button 1 -->
                 <!-- cinema logo here -->
                 <span>
-                    <a class="topBarButton" onclick="changeTab('page1')">Home</a>
-                    <a class="topBarButton" onclick="changeTab('page2')">Book</a>
-                    <a class="topBarButton" onclick="changeTab('page3')">Upcoming Films</a>
-                    <a class="topBarButton" onclick="changeTab('page4')">Offers and Gifts</a>
+                    <a class="topBarButton" onclick="changeTab('page1')">Home</a> |
+                    <a class="topBarButton" onclick="changeTab('page2')">Book</a> |
+                    <a class="topBarButton" onclick="changeTab('page3')">Upcoming Films</a> |
+                    <a class="topBarButton" onclick="changeTab('page4')">Offers and Gifts</a> 
                 </span>
+                <div class="topBarButton" id="topBarSearch">
+                    <!-- This will allow searching for a film and will then give a list of the films that are returned from the search, then let the user pick one and open a model / link to it
+                     -->
+                    <form action="">
+                        <input id="topBarSearchInput" placeholder="Please search a film here...">
+                        <button id="" class="">SUBMIT</button>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -39,6 +47,17 @@
         <div id="container">
             <div class="page" id="page1">
                 <h2 class="title">Home page</h2>
+                <div class="paragraph">
+                    <!-- There will be a 4 picture slideshow of current films -->
+                    <p>slideshow</p>
+                </div>
+                <div class="paragraph">
+                    <p>Welcome to WS Films, the home of modern cinema.</p>
+                </div>
+                <div class="paragraph">
+                    <p>Current film information</p>
+                    <!-- current film information will go here -->
+                </div>
             </div>
             <div class="page" id="page2">
                 <h2 class="title">Make a Booking</h2>
@@ -55,7 +74,7 @@
         <div id="footer">
             <div class="thefooter">
                 <!-- This is where the footer data will go like the location, copyright and my name -->
-                <p>Footer Content</p>
+                <p>WS Films - Address: 12 some road town city</p>
             </div>
         </div>
     </body>

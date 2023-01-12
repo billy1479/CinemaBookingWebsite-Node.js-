@@ -1,28 +1,47 @@
 body {
     font-size: 1.5rem;
     color:  white;
-    background-color: #3e8de3;
+    background-color: #0a1c3a;
 }
+
+/* For top bar buttons */
 
 #topBar {
     /* CSS for the top bar container */
     width: 100%;
-    display: block;
+    display: inline-block;
     border-bottom: 1px solid white;
     padding-bottom: 10px;
-    text-align: center;
+    margin-top: 5px;
+    text-align: left;
 }
 
 .topBarButton {
     text-decoration: none;
     color: white;
-    padding: 10px;
-    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .topBarButton:hover {
     color: chocolate;
+    cursor: pointer;
 }
+
+#topBarSearch {
+    float: right;
+}
+
+#topBarSearchInput {
+    border: 1px solid white;
+    border-radius: 8px 8px 8px 8px;
+    padding: 8px;
+    width: 250px;
+}
+
+
+
+/* for containers */
 
 #container {
     /* CSS for the main container */
@@ -40,8 +59,23 @@ body {
     border-top: 1px solid white;
 }
 
+.thefooter {
+    text-align: left;
+}
+
 .page {
     text-align: center;
     margin: 10px;
     display: none;
+}
+
+.paragraph {
+    border-bottom: 1px solid white;
+}
+
+/* General */
+
+.title {
+    text-align: left;
+    text-decoration: underline;
 }
