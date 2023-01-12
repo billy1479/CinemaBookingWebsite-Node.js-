@@ -48,6 +48,7 @@ body {
     width: 100%;
     display: block;
     text-align: center;
+    /* background-color: white; */
 }
 
 #footer {
@@ -85,6 +86,41 @@ body {
 
 /* Slide Show area */
 
+#slideshowArea {
+    position: relative;
+    margin: auto;
+    width: 100%;
+}
+
 .slideChange {
     cursor: pointer;
+}
+
+.slides {
+    display: none;
+    width: 100%;
+}
+
+
+
+/* Home page - Current film area */
+
+.currentFilmContainer {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid white;
+    margin-bottom: 30px;
+}
+
+.currentFilmImage {
+    flex: 25%;
+    margin: 5px;
+}
+
+.currentFilmDescription {
+    flex: 65%;
+    margin: 5px;
+    text-align: center;
 }
