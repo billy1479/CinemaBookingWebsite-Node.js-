@@ -57,6 +57,7 @@ body {
     position: absolute;
     bottom: 0;
     border-top: 1px solid white;
+    font-size: 1rem;
 }
 
 .thefooter {
@@ -71,6 +72,7 @@ body {
 
 .paragraph {
     border-bottom: 1px solid white;
+    font-size: 1.1rem;
 }
 
 /* General */
@@ -78,4 +80,11 @@ body {
 .title {
     text-align: left;
     text-decoration: underline;
+}
+
+
+/* Slide Show area */
+
+.slideChange {
+    cursor: pointer;
 }

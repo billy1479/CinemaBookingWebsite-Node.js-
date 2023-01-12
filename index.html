@@ -50,17 +50,62 @@
                 <div class="paragraph">
                     <!-- There will be a 4 picture slideshow of current films -->
                     <p>slideshow</p>
+                    <div class="slides" id="filmSlide">
+                        <!-- This will have content loaded via JS -->
+                    </div>
+                    <div class="slides" id="offerSlide">
+
+                    </div>
+                    <div class="slides" id="generalSlide">
+
+                    </div>
+                    <!-- These will need to be centred and placed on either side of the screen -->
+                    <a class="slideChange" onclick="">Next</a>
+                    <a class="slideChange" onclick="">Previous</a>
                 </div>
                 <div class="paragraph">
                     <p>Welcome to WS Films, the home of modern cinema.</p>
+                    <p>Please take a look around to see the various offers we have available as well as the current and upcoming films being shown.</p>
+                    <p>Take a look at the upcoming films section where we showcase films that we will be showing in the coming months and their ratings!</p>
+                    <p>Dont forget to see the classic films we re-run weekly as well!</p>
                 </div>
                 <div class="paragraph">
                     <p>Current film information</p>
                     <!-- current film information will go here -->
+                    <div class="currentFilmContainer" id="">
+                        <!-- first current film is loaded here -->
+                    </div> 
+                    <div class="currentFilmContainer" id="">
+                        <!-- second current film is loaded here -->
+                    </div>
+                    <div class="currentFilmContainer" id="">
+                        <!-- Third current film is loaded here -->
+                    </div>
                 </div>
             </div>
             <div class="page" id="page2">
                 <h2 class="title">Make a Booking</h2>
+                <!-- MAKE ALL ITEMS ON THE FORM ON SEPERATE MINI TABS THAT WILL MOVE BY AS THEY MOVE THROUGH THE FORM -->
+                <!-- ENCOMPASS ALL MODALS IN FORM TAGS AND IT WILL TREAT IT AS ONE ENTITY - MANIPULATE WITH DISPLAY -->
+                <form action="" id="bookingForm">
+                    <ul style="list-style: none;" id="bookingFormList">
+                        <li><label>First Name:</label></li>
+                        <li><input class="formInput" id="firstNameInput" placeholder="John"></li>
+                        <li><label>Surename:</label></li>
+                        <li><input class="formInput" id="surenameInput" placeholder="Smith"></li>
+                        <li><label>Select your film:</label></li>
+                        <li><select id="filmSelect">
+                            <!-- films are loaded here -->
+                        </select></li>
+                        <li><label>Number of guests (including yourself):</label></li>
+                        <li>
+                            <!-- will need an input that allows numbers with arrows -->
+                        </li>
+                        <li><label>Please select a date:</label></li>
+                        <li><input type="date" class="formInput" id="dateInput"></li>
+                        <li><button type="submit" id="bookingFormSubmitButton">Book</button></li>
+                    </ul>
+                </form>
             </div>
             <!-- current films has been added to home page -->
             <div class="page" id="page3">
