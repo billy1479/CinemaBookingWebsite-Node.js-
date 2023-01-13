@@ -17,6 +17,9 @@
         <!-- Custom styles for this template-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="main.css">
+
+        <!-- For icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     </head>
     <!-- Start of the page body -->
     <body onload="changeTab('page1')">
@@ -37,7 +40,7 @@
                      -->
                     <form action="">
                         <input id="topBarSearchInput" placeholder="Please search a film here...">
-                        <button id="" class="">SUBMIT</button>
+                        <button id="topBarSearchButton" class="bi bi-search"></button>
                     </form>
                 </div>
             </div>
@@ -46,7 +49,7 @@
         <!-- container for main content -->
         <div id="container">
             <div class="page" id="page1">
-                <h2 class="title">Home page</h2>
+                <!-- <h2 class="title">Home page</h2> -->
                 <div class="paragraph" id="slideshowArea">
                     <!-- There will be a 4 picture slideshow of current films -->
                     <p>slideshow</p>
@@ -73,11 +76,11 @@
                     <!-- current film information will go here -->
                     <div class="currentFilmContainer" id="">
                         <!-- first current film is loaded here -->
-                        <img class="currentFilmImage" id="film1">
+                        <img class="currentFilmImage" id="film1" src="Images/avengers.jpg">
                         <div class="currentFilmDescription" id="film1Details">
-                            <p id="film1Description">Film 1 description</p>
-                            <p id="film1Duration">Time duration</p>
-                            <p id="film1Rating">Age Rating</p>
+                            <p id="film1Description">Facing an enemy too powerful to stop alone, the Avengers and the Guardians, alongside Doctor Strange, Black Panther, and Spider-Man must come together and stop Thanos from inflicting his power and destroying the universe.</p>
+                            <p id="film1Duration">2h 39m</p>
+                            <p id="film1Rating">12A</p>
                         </div>
                     </div> 
                     <div class="currentFilmContainer" id="">
@@ -87,11 +90,11 @@
                             <p id="film2Duration">Time duration</p>
                             <p id="film2Rating">Age Rating</p>
                         </div>
-                        <img class="currentFilmImage" id="film2">
+                        <img class="currentFilmImage" id="film2" src="Images/notebook.jpg">
                     </div>
                     <div class="currentFilmContainer" id="">
                         <!-- Third current film is loaded here -->
-                        <img class="currentFilmImage" id="film3">
+                        <img class="currentFilmImage" id="film3" src="Images/smile.jpg">
                         <div class="currentFilmDescription" id="film3Details">
                             <p id="film3Description">Film 1 description</p>
                             <p id="film3Duration">Time duration</p>
@@ -137,6 +140,9 @@
             <div class="thefooter">
                 <!-- This is where the footer data will go like the location, copyright and my name -->
                 <p>WS Films - Address: 12 some road town city</p>
+            </div>
+            <div class="thefooter" style="float: right;">
+                <p>Opening times: 9.00AM-10.00PM Mon-Sat</p>
             </div>
         </div>
     </body>
