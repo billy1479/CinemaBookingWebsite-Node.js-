@@ -134,11 +134,18 @@ body {
 .slides {
     width: 100%;
     display: none;
+    animation-name: fadeout;
+    animation-duration: 1s;
+}
+
+@keyframes fadeout {
+    from {opacity: .6;}
+    to {opacity: 1;}
 }
 
 .slideImage {
     position: relative;
-    opacity: 0.5;
+    /* opacity: 0.5; */
 }
 
 
