@@ -105,20 +105,41 @@ body {
 /* Slide Show area */
 
 #slideshowArea {
-    position: relative;
     margin: auto;
     width: 100%;
+    position: relative;
 }
 
 .slideChange {
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+}
+
+.next {
+    right: 25%;
+}
+
+.previous {
+    left: 25%;
+}
+
+.slideText {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    text-align: center;
 }
 
 .slides {
-    display: none;
     width: 100%;
+    display: none;
 }
 
+.slideImage {
+    position: relative;
+    opacity: 0.5;
+}
 
 
 /* Home page - Current film area */
