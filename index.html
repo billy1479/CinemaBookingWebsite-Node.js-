@@ -63,7 +63,10 @@
                     </div>
                     <div class="slides" id="offerSlide">
                         <img src="Images/cinemaBackground2.jpg" class="slideImage">
-                        <p>Text</p>
+                        <div class="slideText">
+                            <h2>Title</h2>
+                            <p>Content</p>
+                        </div>
                     </div>
                     <div class="slides" id="generalSlide">
                         <img alt="slide3Image" src="Images/cinemaBackground1.jpg" class="slideImage">
@@ -115,50 +118,44 @@
                 </div>
             </div>
             <div class="page" id="page2">
-                <h2 class="title">Make a Booking</h2>
-                <!-- MAKE ALL ITEMS ON THE FORM ON SEPERATE MINI TABS THAT WILL MOVE BY AS THEY MOVE THROUGH THE FORM -->
-                <!-- ENCOMPASS ALL MODALS IN FORM TAGS AND IT WILL TREAT IT AS ONE ENTITY - MANIPULATE WITH DISPLAY -->
-                <!-- <form action="" id="bookingForm">
-                    <ul style="list-style: none;" id="bookingFormList">
-                        <li><label>First Name:</label></li>
-                        <li><input class="formInput" id="firstNameInput" placeholder="John"></li>
-                        <li><label>Surname:</label></li>
-                        <li><input class="formInput" id="surenameInput" placeholder="Smith"></li>
-                        <li><label>Select your film:</label></li>
-                        <li><select id="filmSelect">
-                        </select></li>
-                        <li><label>Number of guests (including yourself):</label></li>
-                        <li>
-                        </li>
-                        <li><label>Please select a date:</label></li>
-                        <li><input type="date" class="formInput" id="dateInput"></li>
-                        <li><button type="submit" id="bookingFormSubmitButton">Book</button></li>
-                    </ul>
-                </form> -->
-
+                <h2 class="title">Book your experience</h2>
                 <form action="" id="bookingForm">
+                    <!-- Date -->
+                    <div class="formSlide">
+                        <ul class="formList" style="list-style: none;">
+                            <li><label class="formLabel">Please select the date of your booking:</label></li>
+                            <li><input type="date" class="formInput" id="dateInput"></li>
+                        </ul>
+                    </div>
                     <!-- For the film you're selecting -->
                     <!-- Number of guests -->
-                    <div class="formSlide" id="">
+                    <div class="formSlide">
+                        <ul class="formList"style="list-style: none;">
+                            <li><label class="formLabel">Please select the film you would like to watch:</label></li>
+                            <li><select class="formSelect" id="filmSelect">
 
+                            </select></li>
+                            <li><label class="formLabel">Please enter the number of guests:</label></li>
+                            <li><input type="number" class="formInput" id="guestNumberInput"></li>
+                        </ul>
                     </div>
                     <!-- For picking seats (optional)-->
-                    <div class="formSlide" id="">
-                        
-                    </div>
-                    <!-- Date -->
-                    <div class="formSlide" id="">
-                        
+                    <div class="formSlide">
+                        <!-- seat picker - this is optional -->
                     </div>
                     <!-- Name -->
-                    <div class="formSlide" id="">
-                        
-                    </div>
-
-                    <div class="formSlide" id="">
-                        
+                    <div class="formSlide">
+                        <ul class="formList" style="list-style: none;">
+                            <li><label class="formLabel">First Name</label></li>
+                            <li><input type="text" class="formInput" id="firstNameInput"></li>
+                            <li><label class="formLabel">Surname</label></li>
+                            <li><input type="text" class="formInput" id="surnameInput"></li>
+                            <li><button type="submit" id="formSubmitButton">Book</button></li>
+                        </ul>
                     </div>
                 </form>
+                <button class="bi bi-arrow-left" id="formChangeButtonLeft" onclick="previousFormSlide()"></button>
+                <button class="bi bi-arrow-right" id="formChangeButtonRight" onclick="nextFormSlide()"></button>
 
 
             </div>
