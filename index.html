@@ -76,8 +76,8 @@
                         </div>
                     </div>
                     <!-- These will need to be centred and placed on either side of the screen -->
-                    <a class="slideChange next" onclick="increaseSlide()">Next</a>
-                    <a class="slideChange previous" onclick="decreaseSlide()">Previous</a>
+                    <a id="slideChange" class="bi bi-caret-right-fill next" onclick="increaseSlide()"></a>
+                    <a id="slideChange" class="bi bi-caret-left-fill previous" onclick="decreaseSlide()"></a>
                 </div>
                 <div class="paragraph">
                     <p>Welcome to WS Films, the home of modern cinema.</p>
@@ -156,6 +156,7 @@
                 </form>
                 <button class="bi bi-arrow-left" id="formChangeButtonLeft" onclick="previousFormSlide()"></button>
                 <button class="bi bi-arrow-right" id="formChangeButtonRight" onclick="nextFormSlide()"></button>
+                <button class="bi bi-arrow-counterclockwise" id="formResetButton" onclick="resetForm()"></button>
 
 
             </div>

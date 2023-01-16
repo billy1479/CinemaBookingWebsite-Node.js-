@@ -68,6 +68,17 @@ function previousFormSlide() {
     changeFormSlide();
 }
 
+// for checking you want to reset the form
+function resetForm() {
+    if (confirm('Would you like to reset your booking?')) {
+        document.getElementById('bookingForm').reset();
+        formSlide = -1;
+        nextFormSlide();
+    }
+}
+
+
+
 function pageLoad() {
     changeTab('page1');
     increaseSlide();
