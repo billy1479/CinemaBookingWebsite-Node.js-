@@ -231,8 +231,21 @@ body {
     padding-left: 100px;
     padding-right: 100px;
     margin-top: 50px;
+    transition: .5s;
 }
 
 #formSubmitButton:hover {
     cursor: pointer;
+    background-color: white;
+    color: #343434;
+}
+
+.formInput {
+    padding: 5px;
+    border-radius: 10px;
+    width: 250px;
+}
+
+.formLabel {
+    text-decoration: underline;
 }
