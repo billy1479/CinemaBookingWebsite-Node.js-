@@ -91,6 +91,7 @@ body {
 
 .paragraph {
     /* border-bottom: 1px solid white; */
+    margin-top: 50px;
     font-size: 1.1rem;
 }
 
@@ -180,9 +181,12 @@ body {
 
 .fullwidthTitle {
     width: 100%;
-    background-color: #343434;
-    padding: 2px;
+    background-color: #0a1c3a;
     border-radius: 10px;
+    padding: 5px;
+    position: sticky;
+    top: 50px;
+    z-index: 99;
 }
 
 

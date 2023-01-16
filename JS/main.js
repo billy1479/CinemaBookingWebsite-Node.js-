@@ -12,6 +12,11 @@ function changeTab(tabName) {
     document.getElementById(tabName).style.display = 'block';
 }
 
+// Function for making the current showings header turn to sticky on scroll
+
+
+
+
 // Functions for slide changing
 var slideNumber = -1;
 var currentSlide = slideNumber;
@@ -76,8 +81,6 @@ function resetForm() {
         nextFormSlide();
     }
 }
-
-
 
 function pageLoad() {
     changeTab('page1');
