@@ -114,15 +114,21 @@ body {
 #slideChange {
     cursor: pointer;
     position: absolute;
+    font-size: 3rem;
     top: 50%;
+    transition: .3s;
+}
+
+#slideChange:hover {
+    color: grey;
 }
 
 .next {
-    right: 25%;
+    right: 5%;
 }
 
 .previous {
-    left: 25%;
+    left: 5%;
 }
 
 .slideText {
@@ -140,17 +146,26 @@ body {
 }
 
 @keyframes fadeout {
-    from {opacity: .6;}
+    from {opacity: .4;}
     to {opacity: 1;}
 }
 
 .slideImage {
     position: relative;
-    /* opacity: 0.5; */
+    width: 100%;
+    border-radius: 15px;
+    opacity: 0.3;
+    max-height: 900px;
 }
 
-
 /* Home page - Current film area */
+
+#name {
+    text-align: left;
+    margin: 50px;
+    margin-top: 90px;
+    font-weight: bolder;
+}
 
 .currentFilmContainer {
     display: block;
@@ -189,15 +204,27 @@ body {
     z-index: 99;
 }
 
+.bookCurrentFilmButtons {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    display: none;
+}
+
+#film1:hover .bookCurrentFilmButtons {
+    display: block;
+}
 
 /* for the booking form */
 
 #bookingForm {
     width: 100%;
+    text-align: center;
 }
 
 .formSlide {
-    width: 100%;
+    width: 60%;
     display: none;
     text-align: center;
     background-color: #343434;
@@ -206,6 +233,8 @@ body {
     animation-name: fadeout;
     animation-duration: 0.5s;
     min-height: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #formChangeButtonLeft, #formChangeButtonRight, #formResetButton {

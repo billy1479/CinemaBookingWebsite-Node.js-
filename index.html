@@ -51,6 +51,15 @@
         <div id="container">
             <div class="page" id="page1">
                 <!-- <h2 class="title">Home page</h2> -->
+                <div class="paragraph" id="name">
+                    <h1>WS Films</h1>
+                </div>
+                <div class="paragraph">
+                    <p>Welcome to WS Films, the home of modern cinema.</p>
+                    <p>Please take a look around to see the various offers we have available as well as the current and upcoming films being shown.</p>
+                    <p>Take a look at the upcoming films section where we showcase films that we will be showing in the coming months and their ratings!</p>
+                    <p>Dont forget to see the classic films we re-run weekly as well!</p>
+                </div>
                 <div class="paragraph" id="slideshowArea">
                     <!-- There will be a 4 picture slideshow of current films -->
                     <!-- <p>slideshow</p> -->
@@ -63,6 +72,7 @@
                         </div>
                     </div>
                     <div class="slides" id="offerSlide">
+                        <!-- this picture is bad -->
                         <img src="Images/cinemaBackground2.jpg" class="slideImage">
                         <div class="slideText">
                             <h2>Title</h2>
@@ -70,7 +80,7 @@
                         </div>
                     </div>
                     <div class="slides" id="generalSlide">
-                        <img alt="slide3Image" src="Images/cinemaBackground1.jpg" class="slideImage">
+                        <img alt="slide3Image" src="Images/pulpfiction.jpeg" class="slideImage">
                         <div class="slideText">
                             <h2>Title</h2>
                             <p>Content</p>
@@ -81,12 +91,7 @@
                     <a id="slideChange" class="bi bi-caret-left-fill previous" onclick="decreaseSlide()"></a>
                 </div>
                 
-                <div class="paragraph">
-                    <p>Welcome to WS Films, the home of modern cinema.</p>
-                    <p>Please take a look around to see the various offers we have available as well as the current and upcoming films being shown.</p>
-                    <p>Take a look at the upcoming films section where we showcase films that we will be showing in the coming months and their ratings!</p>
-                    <p>Dont forget to see the classic films we re-run weekly as well!</p>
-                </div>
+                
                 <div class="fullwidthTitle">
                     <h2>Current Showings</h2>
                 </div>
@@ -96,6 +101,7 @@
                     <div class="currentFilmContainer" id="">
                         <!-- first current film is loaded here -->
                         <img class="currentFilmImage" id="film1" src="Images/avengers.jpg">
+                        <button class="bookCurrentFilmButtons" id="filmBookButton" onclick="">Book Now</button>
                         <div class="currentFilmDescription" id="film1Details">
                             <p id="film1Description">Facing an enemy too powerful to stop alone, the Avengers and the Guardians, alongside Doctor Strange, Black Panther, and Spider-Man must come together and stop Thanos from inflicting his power and destroying the universe.</p>
                             <p id="film1Duration">2h 39m</p>
@@ -118,6 +124,33 @@
                             <p id="film3Description">Film 1 description</p>
                             <p id="film3Duration">Time duration</p>
                             <p id="film3Rating">Age Rating</p>
+                        </div>
+                    </div>
+                    <div class="currentFilmContainer" id="">
+                        <!-- Third current film is loaded here -->
+                        <img class="currentFilmImage" id="film4" src="Images/">
+                        <div class="currentFilmDescription" id="film4Details">
+                            <p id="film4Description">Film 1 description</p>
+                            <p id="film4Duration">Time duration</p>
+                            <p id="film4Rating">Age Rating</p>
+                        </div>
+                    </div>
+                    <div class="currentFilmContainer" id="">
+                        <!-- Third current film is loaded here -->
+                        <img class="currentFilmImage" id="film5" src="Images/">
+                        <div class="currentFilmDescription" id="film5Details">
+                            <p id="film5Description">Film 1 description</p>
+                            <p id="film5Duration">Time duration</p>
+                            <p id="film5Rating">Age Rating</p>
+                        </div>
+                    </div>
+                    <div class="currentFilmContainer" id="">
+                        <!-- Third current film is loaded here -->
+                        <img class="currentFilmImage" id="film6" src="Images/">
+                        <div class="currentFilmDescription" id="film6Details">
+                            <p id="film6Description">Film 1 description</p>
+                            <p id="film6Duration">Time duration</p>
+                            <p id="film6Rating">Age Rating</p>
                         </div>
                     </div>
                 </div>
