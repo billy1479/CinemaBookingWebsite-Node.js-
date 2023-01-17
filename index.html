@@ -32,9 +32,8 @@
                 <span>
                     <a class="topBarButton" onclick="changeTab('page1')">Home</a> |
                     <a class="topBarButton" onclick="changeTab('page2')">Book</a> |
-                    <a class="topBarButton" onclick="changeTab('page3')">Upcoming Films</a> |
-                    <a class="topBarButton" onclick="changeTab('page4')">Offers and Gifts</a> |
-                    <a class="topBarButton" onclick="changeTab('page5')">Re-runs</a>
+                    <a class="topBarButton" onclick="changeTab('page3')">Upcoming Films and Re-runs</a> |
+                    <a class="topBarButton" onclick="changeTab('page4')">Offers and Gifts</a>
                 </span>
                 <div class="topBarButton" id="topBarSearch" onmouseleave="closeSearchBox()">
                     <!-- This will allow searching for a film and will then give a list of the films that are returned from the search, then let the user pick one and open a model / link to it
@@ -86,7 +85,7 @@
                         <div class="slideText">
                             <h2>Re-runs</h2>
                             <p>Weekly, we show a wide range of old classics that everyone ranging from your Mother to your child will love!</p>
-                            <p>Dont be afraid to have a look <a onclick="changeTab('page5')" style="text-decoration: underline; cursor: pointer;">here</a></p>
+                            <p>Dont be afraid to have a look <a onclick="changeTab('page3')" style="text-decoration: underline; cursor: pointer;">here</a></p>
                         </div>
                     </div>
                     <!-- These will need to be centred and placed on either side of the screen -->
@@ -94,7 +93,7 @@
                     <a id="slideChange" class="bi bi-caret-left-fill previous" onclick="decreaseSlide()"></a>
                 </div>
                 <div class="fullwidthTitle">
-                    <h2>Current Showings</h2>
+                    <h2 id="currentShowingTitle"></h2>
                 </div>
                 <div class="paragraph">
                     <!-- ADDITION - add a hover effect to images so it takes them to the booking screen if they click the image -->
@@ -112,9 +111,9 @@
                     <div class="currentFilmContainer" id="">
                         <!-- second current film is loaded here -->
                         <div class="currentFilmDescription" id="film2Details">
-                            <p id="film2Description">Film 1 description</p>
-                            <p id="film2Duration">Time duration</p>
-                            <p id="film2Rating">Age Rating</p>
+                            <p id="film2Description">A poor yet passionate young man (Ryan Gosling) falls in love with a rich young woman (Rachel McAdams), giving her a sense of freedom, but they are soon separated because of their social differences.</p>
+                            <p id="film2Duration">2h 3m</p>
+                            <p id="film2Rating">12A</p>
                         </div>
                         <img class="currentFilmImage" id="film2" src="Images/notebook.jpg">
                     </div>
@@ -122,36 +121,27 @@
                         <!-- Third current film is loaded here -->
                         <img class="currentFilmImage" id="film3" src="Images/smile.jpg">
                         <div class="currentFilmDescription" id="film3Details">
-                            <p id="film3Description">Film 1 description</p>
-                            <p id="film3Duration">Time duration</p>
-                            <p id="film3Rating">Age Rating</p>
+                            <p id="film3Description">At a psychiatric ward, therapist Dr. Rose Cotter meets with Laura Weaver, a graduate student who witnessed her art history professor die by suicide several days earlier. Laura claims that an entity taking the form of smiling people has been terrorizing her and has told her that she is going to die.</p>
+                            <p id="film3Duration">1h 55m</p>
+                            <p id="film3Rating">18</p>
                         </div>
                     </div>
                     <div class="currentFilmContainer" id="">
                         <!-- Third current film is loaded here -->
-                        <img class="currentFilmImage" id="film4" src="Images/">
                         <div class="currentFilmDescription" id="film4Details">
-                            <p id="film4Description">Film 1 description</p>
-                            <p id="film4Duration">Time duration</p>
-                            <p id="film4Rating">Age Rating</p>
+                            <p id="film4Description">After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.</p>
+                            <p id="film4Duration">2h 6m</p>
+                            <p id="film4Rating">PG-13</p>
                         </div>
+                        <img class="currentFilmImage" id="film4" src="Images/ironman.jfif">
                     </div>
                     <div class="currentFilmContainer" id="">
                         <!-- Third current film is loaded here -->
-                        <img class="currentFilmImage" id="film5" src="Images/">
+                        <img class="currentFilmImage" id="film5" src="Images/12yearsaslave.jfif">
                         <div class="currentFilmDescription" id="film5Details">
-                            <p id="film5Description">Film 1 description</p>
-                            <p id="film5Duration">Time duration</p>
-                            <p id="film5Rating">Age Rating</p>
-                        </div>
-                    </div>
-                    <div class="currentFilmContainer" id="">
-                        <!-- Third current film is loaded here -->
-                        <img class="currentFilmImage" id="film6" src="Images/">
-                        <div class="currentFilmDescription" id="film6Details">
-                            <p id="film6Description">Film 1 description</p>
-                            <p id="film6Duration">Time duration</p>
-                            <p id="film6Rating">Age Rating</p>
+                            <p id="film5Description">In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.</p>
+                            <p id="film5Duration">2h 14m</p>
+                            <p id="film5Rating">R</p>
                         </div>
                     </div>
                 </div>
@@ -202,7 +192,7 @@
             </div>
             <!-- current films has been added to home page -->
             <div class="page" id="page3">
-                <h2 class="title">Upcoming Films</h2>
+                <h2 class="title">Upcoming Films and Re-runs</h2>
                 <div class="upcomingFilmFrame" id="uFFrame0">
                     
                 </div>
@@ -228,40 +218,37 @@
                     <p>Content</p>
                     <a id="offerPageDropdown1" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown1','offerPage1Description')"></a>
                     <p>Further Information</p>
-                    <p class="offerPageDescriptions" id="offerPage1Description">actual words</p>
+                    <p class="offerPageDescriptions" id="offerPage1Description">For just £12.99 a month, get yourself a 10% discount on all showings Monday-Friday (excl. Bank Holidays) - A perfect way to treat the family!</p>
                 </div>
                 <div class="offerPage" id="offerPage2">
                     <h3>2 for 1 offer!</h3>
                     <p>Content</p>
                     <a id="offerPageDropdown2" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown2','offerPage2Description')"></a>
                     <p>Further Information</p>
-                    <p class="offerPageDescriptions" id="offerPage2Description"></p>
+                    <p class="offerPageDescriptions" id="offerPage2Description">Only on Wednesdays, get yourself 2 Adult Tickets for the price of 1!</p>
                 </div>
                 <div class="offerPage" id="offerPage3">
                     <h3>Family Discount</h3>
                     <p>Content</p>
                     <a id="offerPageDropdown3" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown3','offerPage3Description')"></a>
                     <p>Further Information</p>
-                    <p class="offerPageDescriptions" id="offerPage3Description"></p>
+                    <p class="offerPageDescriptions" id="offerPage3Description">We are offering a 10% off discount for a family of 2 Adults and 2 Children Monday-Friday (excl. Bank Holidays).</p>
                 </div>
                 <div class="offerPage" id="offerPage4">
                     <h3>Voucher</h3>
                     <p>Content</p>
                     <a id="offerPageDropdown4" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown4','offerPage4Description')"></a>
                     <p>Further Information</p>
-                    <p class="offerPageDescriptions" id="offerPage4Description"></p>
+                    <p class="offerPageDescriptions" id="offerPage4Description">Feeling generous? How about you buy a voucher for your friend or family member? We do vouchers for £25, £50 and £100!</p>
                 </div>
                 <div class="offerPage" id="offerPage5">
                     <h3>Student Discount</h3>
                     <p>Content</p>
                     <a id="offerPageDropdown5" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown5','offerPage5Description')"></a>
                     <p>Further Information</p>
-                    <p class="offerPageDescriptions" id="offerPage5Description"></p>
+                    <p class="offerPageDescriptions" id="offerPage5Description">Are you a student? If so you are in luck! All students ages 16 and over get 10% all showings - just make sure to bring your student ID when you are in store.</p>
 
                 </div>
-            </div>
-            <div class="page" id="page5">
-                <h2 class="title">Re-runs</h2>
             </div>
             <button class="bi bi-arrow-up" id="ScrollButton"></button>
         </div>

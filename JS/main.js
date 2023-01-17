@@ -92,6 +92,7 @@ function pageLoad() {
     changeTab('page1');
     increaseSlide();
     nextFormSlide();
+    getDate();
 }
 
 // for the buttons on the offer page moving to the element
@@ -121,4 +122,19 @@ function showDropdown(x,y) {
         document.getElementById(y).style.display = 'block';
         document.getElementById(y).style.opacity = '0.9';
     }
+}
+
+// for getting the date for the home page
+
+function getDate() {
+    daysofweekArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    var currentDate = new Date();
+    var dayofweek,day, month, year;
+    dayofweek = currentDate.getDay();
+    dayofweek = daysofweekArray[dayofweek];
+    day = currentDate.getDate();
+    month = currentDate.getMonth() + 1;
+    year = currentDate.getFullYear();
+    var myString = 'Current Showings : ' + dayofweek + ' ' + day + '/' + month + '/' + year;
+    document.getElementById('currentShowingTitle').innerHTML = myString;
 }
