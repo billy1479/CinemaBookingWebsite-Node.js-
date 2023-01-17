@@ -90,8 +90,6 @@
                     <a id="slideChange" class="bi bi-caret-right-fill next" onclick="increaseSlide()"></a>
                     <a id="slideChange" class="bi bi-caret-left-fill previous" onclick="decreaseSlide()"></a>
                 </div>
-                
-                
                 <div class="fullwidthTitle">
                     <h2>Current Showings</h2>
                 </div>
@@ -195,12 +193,25 @@
                 <button class="bi bi-arrow-left" id="formChangeButtonLeft" onclick="previousFormSlide()"></button>
                 <button class="bi bi-arrow-right" id="formChangeButtonRight" onclick="nextFormSlide()"></button>
                 <button class="bi bi-arrow-counterclockwise" id="formResetButton" onclick="resetForm()"></button>
-
-
+                <div id="printableArea">
+                    <!-- this is for the booking reference number and other booking details along with a print button for the user to print with -->
+                </div>
             </div>
             <!-- current films has been added to home page -->
             <div class="page" id="page3">
                 <h2 class="title">Upcoming Films</h2>
+                <div class="upcomingFilmFrame" id="3dFilm">
+                    <img src="Images/smile.jpg" id="3dFilmImage">
+                    <div id="3dFilmInfo">
+                        <p>Content</p>
+                    </div>
+                </div>
+                <div class="upcomingFilmFrame" id="uFFrame1">
+
+                </div>
+                <div class="upcomingFilmFrame" id="uFFrame2">
+
+                </div>
             </div>
             <div class="page" id="page4">
                 <!-- Add dropdown buttons for each section -->
@@ -238,7 +249,6 @@
             </div>
             <button class="bi bi-arrow-up" id="ScrollButton"></button>
         </div>
-
         <div id="footer">
             <div class="thefooter">
                 <!-- This is where the footer data will go like the location, copyright and my name -->

@@ -334,3 +334,25 @@ body {
     text-align: left;
     border-bottom: 1px solid white;
 }
+
+
+/* upcoming film section */
+
+.upcomingFilmFrame {
+    width: 100%;
+}
+
+#3dFilm {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#3dFilmImage {
+    flex: 40%;
+}
+
+#3dFilmInfo {
+    flex: 40%;
+}
+
+
