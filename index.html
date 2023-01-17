@@ -40,8 +40,8 @@
                     <!-- This will allow searching for a film and will then give a list of the films that are returned from the search, then let the user pick one and open a model / link to it
                      -->
                     <form action="">
-                        <input id="topBarSearchInput" placeholder="Please search a film here...">
-                        <button id="topBarSearchButton" class="bi bi-search"></button>
+                        <input id="topBarSearchInput" onmouseleave="closeSearchBox()" placeholder="Enter Booking Reference here:">
+                        <button id="topBarSearchButton" onmouseover="showSearchBox()" class="bi bi-search"></button>
                     </form>
                 </div>
             </div>
@@ -222,23 +222,34 @@
                 </div>
                 <div class="offerPage" id="offerPage1">
                     <h3>Membership</h3>
-                    <p>Content</p>
+                    <a id="offerPageDropdown1" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown1','offerPage1Description')"></a>
+                    <p>Information</p>
+                    <p class="offerPageDescriptions" id="offerPage1Description">actual words</p>
                 </div>
                 <div class="offerPage" id="offerPage2">
                     <h3>2 for 1 offer!</h3>
-                    <p>Content</p>
+                    <a id="offerPageDropdown2" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown2','offerPage2Description')"></a>
+                    <p>Information</p>
+                    <p class="offerPageDescriptions" id="offerPage2Description"></p>
                 </div>
                 <div class="offerPage" id="offerPage3">
                     <h3>Family Discount</h3>
-                    <p>Content</p>
+                    <a id="offerPageDropdown3" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown3','offerPage3Description')"></a>
+                    <p>Information</p>
+                    <p class="offerPageDescriptions" id="offerPage3Description"></p>
                 </div>
                 <div class="offerPage" id="offerPage4">
                     <h3>Voucher</h3>
-                    <p>Content</p>
+                    <a id="offerPageDropdown4" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown4','offerPage4Description')"></a>
+                    <p>Information</p>
+                    <p class="offerPageDescriptions" id="offerPage4Description"></p>
                 </div>
                 <div class="offerPage" id="offerPage5">
                     <h3>Student Discount</h3>
-                    <p>Content</p>
+                    <a id="offerPageDropdown5" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown5','offerPage5Description')"></a>
+                    <p>Information</p>
+                    <p class="offerPageDescriptions" id="offerPage5Description"></p>
+
                 </div>
             </div>
             <div class="page" id="page5">

@@ -12,17 +12,27 @@ function changeTab(tabName) {
     document.getElementById(tabName).style.display = 'block';
 }
 
+function showSearchBox() {
+    box = document.getElementById('topBarSearchInput');
+    box.style.width = '250px';
+}
+
+function closeSearchBox() {
+    box = document.getElementById('topBarSearchInput');
+    box.style.width = '50px';
+}
+
 // for the scroll button
 
-// function showScrollButton() {
-//     if (document.body.scrollTop > 10) {
-//         document.getElementById('ScrollButton').style.display = 'Block';
-//     } else {
-//         document.getElementById('ScrollButton').style.display = 'None';
-//     }
-// }
+    // function showScrollButton() {
+    //     if (document.getElementsByClassName('page').scrollTop > 10) {
+    //         document.getElementById('ScrollButton').style.display = 'Block';
+    //     } else {
+    //         document.getElementById('ScrollButton').style.display = 'None';
+    //     }
+    // }
 
-// window.onscroll = function () {showScrollButton()}
+    // window.onscroll = function () {showScrollButton()}
 
 
 // Functions for slide changing
@@ -107,4 +117,20 @@ function moveTo(x) {
         top: newPosition,
         behavior: "smooth"
     })
+}
+
+// for dropdowns on offer page
+
+function showDropdown(x,y) {
+    if (document.getElementById(y).style.display == 'block') {
+        console.log('hello')
+        document.getElementById(x).style.transform = 'ScaleY(1)';
+        document.getElementById(y).style.display = 'None';
+    } else {
+        console.log('this has run')
+        document.getElementById(x).style.transform = 'ScaleY(-1)';
+        document.getElementById(y).style.display = 'block';
+    }
+
+    
 }

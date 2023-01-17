@@ -40,7 +40,8 @@ body {
     border: 1px solid white;
     border-radius: 8px 8px 8px 8px;
     padding: 8px;
-    width: 250px;
+    width: 50px;
+    transition: width 2s;
 }
 
 #topBarSearchButton {
@@ -51,6 +52,7 @@ body {
     margin-top: auto;
     margin-bottom: auto;
 }
+
 
 
 
@@ -333,6 +335,24 @@ body {
     margin: 50px;
     text-align: left;
     border-bottom: 1px solid white;
+}
+
+.offerPage > h3 {
+    text-align: center;
+}
+
+.offerPage > a {
+    float: right;
+    font-size: 1.5rem;
+    margin: 5px;
+    transition: .5s;
+}
+
+.offerPageDescriptions {
+    border-top: 1px solid white;
+    display: none;
+    transition: .5s;
+    padding: 20px;
 }
 
 
