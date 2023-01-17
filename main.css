@@ -95,6 +95,17 @@ body {
     font-size: 1.1rem;
 }
 
+#ScrollButton {
+    font-size: 3rem;
+    border: none;
+    background: none;
+    position: fixed;
+    bottom: 12%;
+    right: 5%;
+    color: white;
+    display: none;
+}
+
 /* General */
 
 .title {
@@ -212,9 +223,6 @@ body {
     display: none;
 }
 
-#film1:hover .bookCurrentFilmButtons {
-    display: block;
-}
 
 /* for the booking form */
 
@@ -293,4 +301,36 @@ body {
 
 .formLabel {
     text-decoration: underline;
+}
+
+
+/* offers and gifts section */
+
+.buttonFrame > button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px;
+    background-color: #343434;
+    color: white;
+    border: none;
+    transition: .5s;
+}
+
+.buttonFrame > button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #343434;
+}
+
+.offerPage {
+    background-color: #343434;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin: 50px;
+    text-align: left;
+    border-bottom: 1px solid white;
 }

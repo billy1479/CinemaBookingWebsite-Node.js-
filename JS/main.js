@@ -12,9 +12,17 @@ function changeTab(tabName) {
     document.getElementById(tabName).style.display = 'block';
 }
 
-// Function for making the current showings header turn to sticky on scroll
+// for the scroll button
 
+// function showScrollButton() {
+//     if (document.body.scrollTop > 10) {
+//         document.getElementById('ScrollButton').style.display = 'Block';
+//     } else {
+//         document.getElementById('ScrollButton').style.display = 'None';
+//     }
+// }
 
+// window.onscroll = function () {showScrollButton()}
 
 
 // Functions for slide changing
@@ -88,3 +96,15 @@ function pageLoad() {
     nextFormSlide();
 }
 
+// for the buttons on the offer page moving to the element
+
+function moveTo(x) {
+    var obj = document.getElementById(x)
+    pageOffset = 80;
+    objPosition = obj.getBoundingClientRect().top
+    var newPosition = objPosition - pageOffset;
+    window.scrollTo({
+        top: newPosition,
+        behavior: "smooth"
+    })
+}
