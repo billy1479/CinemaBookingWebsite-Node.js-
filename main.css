@@ -342,17 +342,20 @@ body {
     width: 100%;
 }
 
-#3dFilm {
+#threedFilm {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 
-#3dFilmImage {
+#threedFilmImageContainer {
     flex: 40%;
 }
 
-#3dFilmInfo {
+#threedFilmInfo {
     flex: 40%;
 }
 
-
+#threedFilmImage {
+    max-width: fit-content;
+}
