@@ -131,7 +131,7 @@ function getDate() {
     var currentDate = new Date();
     var dayofweek,day, month, year;
     dayofweek = currentDate.getDay();
-    dayofweek = daysofweekArray[dayofweek];
+    dayofweek = daysofweekArray[dayofweek - 1];
     day = currentDate.getDate();
     month = currentDate.getMonth() + 1;
     year = currentDate.getFullYear();
