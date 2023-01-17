@@ -370,3 +370,15 @@ body {
     text-align: left;
 }
 
+.UFFInnerFrame {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.UFFElement {
+    flex: 30%;
+}
+
+
