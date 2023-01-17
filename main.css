@@ -40,8 +40,8 @@ body {
     border: 1px solid white;
     border-radius: 8px 8px 8px 8px;
     padding: 8px;
-    width: 50px;
-    transition: width 2s;
+    width: 250px;
+    transition: .5s;
 }
 
 #topBarSearchButton {
@@ -52,7 +52,6 @@ body {
     margin-top: auto;
     margin-bottom: auto;
 }
-
 
 
 
@@ -149,6 +148,7 @@ body {
     top: 30%;
     width: 100%;
     text-align: center;
+    font-size: 2rem;
 }
 
 .slides {
@@ -362,20 +362,3 @@ body {
     width: 100%;
 }
 
-#threedFilm {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-#threedFilmImageContainer {
-    flex: 40%;
-}
-
-#threedFilmInfo {
-    flex: 40%;
-}
-
-#threedFilmImage {
-    max-width: fit-content;
-}

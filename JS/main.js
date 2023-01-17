@@ -22,18 +22,6 @@ function closeSearchBox() {
     box.style.width = '50px';
 }
 
-// for the scroll button
-
-    // function showScrollButton() {
-    //     if (document.getElementsByClassName('page').scrollTop > 10) {
-    //         document.getElementById('ScrollButton').style.display = 'Block';
-    //     } else {
-    //         document.getElementById('ScrollButton').style.display = 'None';
-    //     }
-    // }
-
-    // window.onscroll = function () {showScrollButton()}
-
 
 // Functions for slide changing
 var slideNumber = -1;
@@ -126,11 +114,11 @@ function showDropdown(x,y) {
         console.log('hello')
         document.getElementById(x).style.transform = 'ScaleY(1)';
         document.getElementById(y).style.display = 'None';
+        
     } else {
         console.log('this has run')
         document.getElementById(x).style.transform = 'ScaleY(-1)';
         document.getElementById(y).style.display = 'block';
+        document.getElementById(y).style.opacity = '0.9';
     }
-
-    
 }
