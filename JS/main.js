@@ -58,7 +58,7 @@ function changeFormSlide() {
         slides[i].style.display = 'none';
     }
     // remove form change button when end of form is reached
-    if (formSlide == 3) {
+    if (formSlide == 2) {
         document.getElementById('formChangeButtonRight').style.display = 'None';
     } else if (formSlide == 0) {
         document.getElementById('formChangeButtonLeft').style.display = 'None';
