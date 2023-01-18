@@ -29,7 +29,7 @@ app.get('/reruns', function (req, resp) {
 })
 
 app.get('/filmbookings', function (req, resp) {
-    // For getting the names of all films being shown for the form
+    resp.send(bookings);
 })
 
 // For the search bar
