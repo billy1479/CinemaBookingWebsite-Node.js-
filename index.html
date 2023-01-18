@@ -26,7 +26,7 @@
         <!-- body will consist of the top navigation bar, the footer at the bottom, the main page between the two which will be split up into seperate 'tabs' -->
         <!-- top nav bar -->
         <div id="topBar">
-            <div class="tobBarButtonContainer">
+            <div class="tobBarButtonContainer" onmouseleave="closeSearchBox()">
                 <!-- container for button 1 -->
                 <!-- cinema logo here -->
                 <span>
@@ -35,7 +35,7 @@
                     <a class="topBarButton" onclick="changeTab('page3')">Upcoming Films and Re-runs</a> |
                     <a class="topBarButton" onclick="changeTab('page4')">Offers and Gifts</a>
                 </span>
-                <div class="topBarButton" id="topBarSearch" onmouseleave="closeSearchBox()">
+                <div class="topBarButton" id="topBarSearch">
                     <!-- This will allow searching for a film and will then give a list of the films that are returned from the search, then let the user pick one and open a model / link to it
                      -->
                     <form action="">
