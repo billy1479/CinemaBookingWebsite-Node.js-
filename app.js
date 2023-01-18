@@ -38,3 +38,10 @@ app.get('/Bookings/:reference', function (req,resp) {
     const result = bookings[bookingReference];
     resp.send(result);
 })
+
+// For making a booking
+app.post('/Bookings/MakeABooking', function (req, resp) {
+    const key = req.body
+})
+
+module.exports = app;
