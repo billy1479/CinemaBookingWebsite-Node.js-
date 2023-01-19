@@ -138,3 +138,5 @@ function getDate() {
     var myString = 'Current Showings : ' + dayofweek + ' ' + day + '/' + month + '/' + year;
     document.getElementById('currentShowingTitle').innerHTML = myString;
 }
+
+document.addEventListener('DOMContentLoaded', pageLoad)
