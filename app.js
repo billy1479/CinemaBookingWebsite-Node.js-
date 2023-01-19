@@ -41,7 +41,7 @@ app.get('/Bookings/:reference', function (req,resp) {
 
 // For making a booking
 app.post('/Bookings/MakeABooking', function (req, resp) {
-    const key = req.body
+    // Needs testing when the form is done
 })
 
 

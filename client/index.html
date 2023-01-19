@@ -1,0 +1,319 @@
+<!-- This is the main page for testing node functions -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>WS Films</title>
+        <!-- Custom fonts for this template-->
+        <link href="general/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+    
+        <!-- Custom styles for this template-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="main.css">
+
+        <!-- For icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    </head>
+    <!-- Start of the page body -->
+    <body onload="pageLoad()">
+        <!-- body will consist of the top navigation bar, the footer at the bottom, the main page between the two which will be split up into seperate 'tabs' -->
+        <!-- top nav bar -->
+        <div id="topBar">
+            <div class="tobBarButtonContainer" onmouseleave="closeSearchBox()">
+                <!-- container for button 1 -->
+                <!-- cinema logo here -->
+                <span>
+                    <a class="topBarButton" onclick="changeTab('page1')">Home</a> |
+                    <a class="topBarButton" onclick="changeTab('page2')">Book</a> |
+                    <a class="topBarButton" onclick="changeTab('page3')">Upcoming Films and Re-runs</a> |
+                    <a class="topBarButton" onclick="changeTab('page4')">Offers and Gifts</a>
+                </span>
+                <div class="topBarButton" id="topBarSearch">
+                    <!-- This will allow searching for a film and will then give a list of the films that are returned from the search, then let the user pick one and open a model / link to it
+                     -->
+                    <form action="">
+                        <input id="topBarSearchInput" placeholder="Please search a film here...">
+                        <button id="topBarSearchButton" class="bi bi-search" onmouseover="showSearchBox()"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- container for main content -->
+        <div id="container">
+            <div class="page" id="page1">
+                <!-- <h2 class="title">Home page</h2> -->
+                <div class="paragraph" id="name">
+                    <h1>WS Films</h1>
+                </div>
+                <div class="paragraph">
+                    <p>Welcome to WS Films, the home of modern cinema.</p>
+                    <p>Please take a look around to see the various offers we have available as well as the current and upcoming films being shown.</p>
+                    <p>Take a look at the upcoming films section where we showcase films that we will be showing in the coming months and their ratings!</p>
+                    <p>Dont forget to see the classic films we re-run weekly as well!</p>
+                </div>
+                <div class="paragraph" id="slideshowArea">
+                    <!-- There will be a 4 picture slideshow of current films -->
+                    <!-- <p>slideshow</p> -->
+                    <div class="slides" id="filmSlide">
+                        <!-- This will have content loaded via JS -->
+                        <img alt="slide1Image" src="Images/cinemaBackground1.jpg" class="slideImage">
+                        <div class="slideText">
+                            <h2>The Home of Modern Cinema</h2>
+                            <p>Please feel free to see the wide range of films we have on offer for you!</p>
+                            <p>Just sit back, relax and enjoy the show :)</p>
+                        </div>
+                    </div>
+                    <div class="slides" id="offerSlide">
+                        <!-- this picture is bad -->
+                        <img src="Images/cinemaBackground2.jpg" class="slideImage">
+                        <div class="slideText">
+                            <h2>Never Miss a thing!</h2>
+                            <p>With our online booking system you can help yourself to booking any film, at any time, for your whole family just at the click of a button.</p>
+                            <p>Interested? Take a look <a style="text-decoration: underline; cursor: pointer;" onclick="changeTab('page2')">here</a></p>
+                        </div>
+                    </div>
+                    <div class="slides" id="generalSlide">
+                        <img alt="slide3Image" src="Images/pulpfiction.jpeg" class="slideImage">
+                        <div class="slideText">
+                            <h2>Re-runs</h2>
+                            <p>Weekly, we show a wide range of old classics that everyone ranging from your Mother to your child will love!</p>
+                            <p>Dont be afraid to have a look <a onclick="changeTab('page3')" style="text-decoration: underline; cursor: pointer;">here</a></p>
+                        </div>
+                    </div>
+                    <!-- These will need to be centred and placed on either side of the screen -->
+                    <a id="slideChange" class="bi bi-caret-right-fill next" onclick="increaseSlide()"></a>
+                    <a id="slideChange" class="bi bi-caret-left-fill previous" onclick="decreaseSlide()"></a>
+                </div>
+                <div class="fullwidthTitle">
+                    <h2 id="currentShowingTitle"></h2>
+                </div>
+                <div class="paragraph">
+                    <!-- ADDITION - add a hover effect to images so it takes them to the booking screen if they click the image -->
+                    <!-- current film information will go here -->
+                    <div class="currentFilmContainer" id="">
+                        <!-- first current film is loaded here -->
+                        <img class="currentFilmImage" id="film1" src="Images/avengers.jpg">
+                        <button class="bookCurrentFilmButtons" id="filmBookButton" onclick="">Book Now</button>
+                        <div class="currentFilmDescription" id="film1Details">
+                            <p id="film1Description">Facing an enemy too powerful to stop alone, the Avengers and the Guardians, alongside Doctor Strange, Black Panther, and Spider-Man must come together and stop Thanos from inflicting his power and destroying the universe.</p>
+                            <p id="film1Duration">2h 39m</p>
+                            <p id="film1Rating">12A</p>
+                        </div>
+                    </div> 
+                    <div class="currentFilmContainer" id="">
+                        <!-- second current film is loaded here -->
+                        <div class="currentFilmDescription" id="film2Details">
+                            <p id="film2Description">A poor yet passionate young man (Ryan Gosling) falls in love with a rich young woman (Rachel McAdams), giving her a sense of freedom, but they are soon separated because of their social differences.</p>
+                            <p id="film2Duration">2h 3m</p>
+                            <p id="film2Rating">12A</p>
+                        </div>
+                        <img class="currentFilmImage" id="film2" src="Images/notebook.jpg">
+                    </div>
+                    <div class="currentFilmContainer" id="">
+                        <!-- Third current film is loaded here -->
+                        <img class="currentFilmImage" id="film3" src="Images/smile.jpg">
+                        <div class="currentFilmDescription" id="film3Details">
+                            <p id="film3Description">At a psychiatric ward, therapist Dr. Rose Cotter meets with Laura Weaver, a graduate student who witnessed her art history professor die by suicide several days earlier. Laura claims that an entity taking the form of smiling people has been terrorizing her and has told her that she is going to die.</p>
+                            <p id="film3Duration">1h 55m</p>
+                            <p id="film3Rating">18</p>
+                        </div>
+                    </div>
+                    <div class="currentFilmContainer" id="">
+                        <!-- Third current film is loaded here -->
+                        <div class="currentFilmDescription" id="film4Details">
+                            <p id="film4Description">After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.</p>
+                            <p id="film4Duration">2h 6m</p>
+                            <p id="film4Rating">PG-13</p>
+                        </div>
+                        <img class="currentFilmImage" id="film4" src="Images/ironman.jfif">
+                    </div>
+                    <div class="currentFilmContainer" id="">
+                        <!-- Third current film is loaded here -->
+                        <img class="currentFilmImage" id="film5" src="Images/12yearsaslave.jfif">
+                        <div class="currentFilmDescription" id="film5Details">
+                            <p id="film5Description">In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.</p>
+                            <p id="film5Duration">2h 14m</p>
+                            <p id="film5Rating">R</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page" id="page2">
+                <h2 class="title">Book your experience</h2>
+                <form action="" id="bookingForm">
+                    <!-- Date -->
+                    <div class="formSlide">
+                        <ul class="formList" style="list-style: none;">
+                            <li><label class="formLabel">Please select the date of your booking:</label></li>
+                            <li><input type="date" class="formInput" id="dateInput"></li>
+                        </ul>
+                    </div>
+                    <!-- For the film you're selecting -->
+                    <!-- Number of guests -->
+                    <div class="formSlide">
+                        <ul class="formList"style="list-style: none;">
+                            <li><label class="formLabel">Please select the film you would like to watch:</label></li>
+                            <li><select class="formSelect" id="filmSelect">
+
+                            </select></li>
+                            <li><label class="formLabel">Adults:</label></li>
+                            <li><input type="number" class="formInput" id="adultNumberInput"></li>
+                            <li><label class="formLabel">Children: </label></li>
+                            <li><input type="number" class="formInput" id="childrenNumberInput"></li>
+                        </ul>
+                    </div>
+                    <div class="formSlide">
+                        <ul class="formList" style="list-style: none;">
+                            <li><label class="formLabel">First Name</label></li>
+                            <li><input type="text" class="formInput" id="firstNameInput"></li>
+                            <li><label class="formLabel">Surname</label></li>
+                            <li><input type="text" class="formInput" id="surnameInput"></li>
+                            <li><label class="formLabel">Email</label></li>
+                            <li><input type="text" class="formInput" id="emailInput"></li>
+                            <li><button type="submit" id="formSubmitButton">Book</button></li>
+                        </ul>
+                    </div>
+                </form>
+                <button class="bi bi-arrow-left" id="formChangeButtonLeft" onclick="previousFormSlide()"></button>
+                <button class="bi bi-arrow-right" id="formChangeButtonRight" onclick="nextFormSlide()"></button>
+                <button class="bi bi-arrow-counterclockwise" id="formResetButton" onclick="resetForm()"></button>
+                <div id="printableArea">
+                    <!-- this is for the booking reference number and other booking details along with a print button for the user to print with -->
+                </div>
+            </div>
+            <!-- current films has been added to home page -->
+            <div class="page" id="page3">
+                <h2 class="title">Upcoming Films and Re-runs</h2>
+                <div class="upcomingFilmFrame" id="uFFrame0">
+                    <h3>Releasing Early 2023</h3>
+                    <div class="UFFInnerFrame">
+                        <div class="UFFElement">
+
+                        </div>
+                        <div class="UFFElement">
+                            
+                        </div>
+                        <div class="UFFElement">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="upcomingFilmFrame" id="uFFrame1">
+                    <h3>Releasing Late 2023</h3>
+                    <div class="UFFInnerFrame">
+                        <div class="UFFElement">
+                            
+                        </div>
+                        <div class="UFFElement">
+                            
+                        </div>
+                        <div class="UFFElement">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="upcomingFilmFrame" id="uFFrame2">
+                    <h3>Re-runs</h3>
+                    <div class="UFFInnerFrame">
+                        <div class="UFFElement">
+                            
+                        </div>
+                        <div class="UFFElement">
+                            
+                        </div>
+                        <div class="UFFElement">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page" id="page4">
+                <!-- Add dropdown buttons for each section -->
+                <h2 class="title">Offers and Gifts</h2>
+                <div class="buttonFrame">
+                    <button onclick="moveTo('offerPage1')">Membership</button>
+                    <button onclick="moveTo('offerPage2')">2 for 1</button>
+                    <button onclick="moveTo('offerPage3')">Family Discount</button>
+                    <button onclick="moveTo('offerPage4')">Voucher</button>
+                    <button onclick="moveTo('offerPage5')">Student Discount</button>
+                </div>
+                <div class="offerPage" id="offerPage1">
+                    <h3>Membership</h3>
+                    <p>Content</p>
+                    <a id="offerPageDropdown1" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown1','offerPage1Description')"></a>
+                    <p>Further Information</p>
+                    <p class="offerPageDescriptions" id="offerPage1Description">For just £12.99 a month, get yourself a 10% discount on all showings Monday-Friday (excl. Bank Holidays) - A perfect way to treat the family!</p>
+                </div>
+                <div class="offerPage" id="offerPage2">
+                    <h3>2 for 1 offer!</h3>
+                    <p>Content</p>
+                    <a id="offerPageDropdown2" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown2','offerPage2Description')"></a>
+                    <p>Further Information</p>
+                    <p class="offerPageDescriptions" id="offerPage2Description">Only on Wednesdays, get yourself 2 Adult Tickets for the price of 1!</p>
+                </div>
+                <div class="offerPage" id="offerPage3">
+                    <h3>Family Discount</h3>
+                    <p>Content</p>
+                    <a id="offerPageDropdown3" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown3','offerPage3Description')"></a>
+                    <p>Further Information</p>
+                    <p class="offerPageDescriptions" id="offerPage3Description">We are offering a 10% off discount for a family of 2 Adults and 2 Children Monday-Friday (excl. Bank Holidays).</p>
+                </div>
+                <div class="offerPage" id="offerPage4">
+                    <h3>Voucher</h3>
+                    <p>Content</p>
+                    <a id="offerPageDropdown4" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown4','offerPage4Description')"></a>
+                    <p>Further Information</p>
+                    <p class="offerPageDescriptions" id="offerPage4Description">Feeling generous? How about you buy a voucher for your friend or family member? We do vouchers for £25, £50 and £100!</p>
+                </div>
+                <div class="offerPage" id="offerPage5">
+                    <h3>Student Discount</h3>
+                    <p>Content</p>
+                    <a id="offerPageDropdown5" class="bi bi-caret-up-fill" onclick="showDropdown('offerPageDropdown5','offerPage5Description')"></a>
+                    <p>Further Information</p>
+                    <p class="offerPageDescriptions" id="offerPage5Description">Are you a student? If so you are in luck! All students ages 16 and over get 10% all showings - just make sure to bring your student ID when you are in store.</p>
+
+                </div>
+            </div>
+            <button class="bi bi-arrow-up" id="ScrollButton"></button>
+        </div>
+        <div id="footer">
+            <div class="thefooter">
+                <!-- This is where the footer data will go like the location, copyright and my name -->
+                <p>WS Films - Address: 12 some road town city</p>
+            </div>
+            <div class="thefooter" style="float: right;">
+                <p>Opening times: 9.00AM-10.00PM Mon-Sat</p>
+            </div>
+        </div>
+    </body>
+    <!-- The main  -->
+    <script src="main.js"></script>
+    <!-- <script src="../general/vendor/jquery/jquery.min.js"></script>
+    <script src="../general/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+
+    <!-- Core plugin JavaScript-->
+    <!-- <script src="../general/vendor/jquery-easing/jquery.easing.min.js"></script> -->
+
+    <!-- Custom scripts for all pages-->
+    <!-- <script src="../general/js/sb-admin-2.min.js"></script> -->
+
+    <!-- Page level plugins -->
+    <!-- <script src="../general/vendor/chart.js/Chart.min.js"></script> -->
+
+    <!-- Page level custom scripts -->
+    <!-- <script src="../general/js/demo/chart-area-demo.js"></script>
+    <script src="../general/js/demo/chart-pie-demo.js"></script> -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <!-- JS imports for the website -->
+    <script src="main.js"></script>
+    <script src="main2.js"></script>
+</html>
