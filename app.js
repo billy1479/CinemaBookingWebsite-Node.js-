@@ -49,14 +49,23 @@ app.get('/filmNames', function (req, resp) {
 
 // For the search bar
 app.get('/Bookings/:reference', function (req,resp) {
-    const bookingReference = req.params.reference;
-    const result = bookings[bookingReference];
+    const email = req.params.email;
+    const result = bookings[email];
     resp.send(result);
 })
 
 // For making a booking
 app.post('/Bookings/MakeABooking', function (req, resp) {
-    // Needs testing when the form is done
+    var userEmail = req.body.email;
+    var date = req.body.date;
+    var film = req.body.film;
+    var noOfAdults = req.body.noAdults;
+    var noOfChildren = req.body.noChild;
+    var firstName = req.body.firstName;
+    var surname = req.body.surname;
+    var value = [date, film, noOfAdults, noOfChildren, firstName, surname]
+    bookings[userEmail] = value;
+    fs.writeFileSync(bookingsFile, bookings);
 })
 
 

@@ -32,18 +32,30 @@ async function loadFilmNames() {
     document.getElementById('filmSelect').innerHTML = listElements;
 }
 
+function assignForm() {
 document.getElementById('bookingForm').addEventListener('submit', async function (e) {
     e.preventDefault();
-    const x = new FormData(document.getElementById('bookingForm'));
+    console.log('this has been run')
+    // const x = new FormData(document.getElementById('bookingForm'));
+    // make dictionary here
     const JSONx = JSON.stringify(Object.fromEntries(x));
+    const formSubmission = await fetch(rootUrl + 'Bookings/MakeABooking', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSONx
+    })
+    document.getElementById('bookingForm').reset();
     // need to add response for JSON
-})
+})}
 
 function callerFunction() {
     loadCurrentFilms();
     loadUpcomingFilms();
     loadReruns();
     loadFilmNames();
+    assignForm();
 }
 
 document.addEventListener('DOMContentLoaded', callerFunction);
