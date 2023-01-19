@@ -2,10 +2,10 @@ const express = require('express');
 const app = express()
 const fs = require('fs')
 
-const bookingsFile = './Data/bookings.json';
-const currentFilmsFile = './Data/currentFilms.json';
-const rerunsFile = './Data/reruns.json';
-const upcomingFilmsFile = './Data/upcoming.json';
+const bookingsFile = './client/Data/bookings.json';
+const currentFilmsFile = './client/Data/currentFilms.json';
+const rerunsFile = './client/Data/reruns.json';
+const upcomingFilmsFile = './client/Data/upcoming.json';
 
 app.use(express.json());
 const path = require('path');
@@ -28,8 +28,23 @@ app.get('/reruns', function (req, resp) {
     resp.send(reruns);
 })
 
-app.get('/filmbookings', function (req, resp) {
-    resp.send(bookings);
+app.get('/filmNames', function (req, resp) {
+    var filmNameArray = [];
+    var currentFilmKeys = Object.keys(currentFilms);
+    currentFilmKeys.forEach(function (x) {
+        filmNameArray.push([currentFilms[x][0], x]);
+    })
+
+    var upComingFilmKeys = Object.keys(upcomingFilms);
+    upComingFilmKeys.forEach(function (x) {
+        filmNameArray.push([upcomingFilms[x][0], x]);
+    })
+
+    var rerunsFilmKeys = Object.keys(reruns);
+    rerunsFilmKeys.forEach(function (x) {
+        filmNameArray.push([reruns[x][0], x]);
+    })
+    resp.send(filmNameArray);
 })
 
 // For the search bar

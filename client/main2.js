@@ -21,6 +21,16 @@ async function loadReruns () {
     // This returns the dictionary
 }
 
+async function loadFilmNames() {
+    const filmNamesObject = await fetch(rootUrl + 'filmNames');
+    const filmNamesResponse = await filmNamesObject.text();
+    x = JSON.parse(filmNamesResponse);
+    
+    var listElements = '';
+
+    
+}
+
 document.getElementById('bookingForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     const x = new FormData(document.getElementById('bookingForm'));
