@@ -25,10 +25,11 @@ async function loadFilmNames() {
     const filmNamesObject = await fetch(rootUrl + 'filmNames');
     const filmNamesResponse = await filmNamesObject.text();
     x = JSON.parse(filmNamesResponse);
-    
     var listElements = '';
-
-    
+    x.forEach(function (y) {
+        listElements += `<option value=${y[1]}>${y[0]}</option>`;
+    })  
+    document.getElementById('filmSelect').innerHTML = listElements;
 }
 
 document.getElementById('bookingForm').addEventListener('submit', async function (e) {
@@ -42,6 +43,7 @@ function callerFunction() {
     loadCurrentFilms();
     loadUpcomingFilms();
     loadReruns();
+    loadFilmNames();
 }
 
 document.addEventListener('DOMContentLoaded', callerFunction);
