@@ -4,7 +4,16 @@ async function loadCurrentFilms() {
     const currentFilmsObject = await fetch(rootUrl + 'currentFilms');
     const currentFilmsResponse = await currentFilmsObject.text();
     x = JSON.parse(currentFilmsResponse);
-    // This returns the dictionary
+    
+    var currentFilmContainers = document.getElementsByClassName('currentFilmContainer');
+    var counter = 0;
+    // need to set up a loop that checks if the counter is odd for when to swap the positioning of the image with the text
+    // add a button element that works with a function not made yet - when clicked, takes the user to the booking page and has the date selected to today as well as the film already selected by the function
+    // Need to sort CSS for button however
+    currentFilmContainers.forEach(function (x) {
+        
+    })
+    
 }
 
 async function loadUpcomingFilms () {
