@@ -48,9 +48,14 @@ app.get('/filmNames', function (req, resp) {
 })
 
 // For the search bar
-app.get('/Bookings/:reference', function (req,resp) {
+app.get('/Bookings/:email', function (req,resp) {
     const email = req.params.email;
-    const result = bookings[email];
+    const bookingEmails = Object.keys(bookings);
+    if (email in bookingEmails) {
+        result = bookings[email]
+    } else {
+        result =  ['False'];
+    }
     resp.send(result);
 })
 
@@ -65,8 +70,7 @@ app.post('/Bookings/MakeABooking', function (req, resp) {
     var surname = req.body.surname;
     var value = [date, film, noOfAdults, noOfChildren, firstName, surname]
     bookings[userEmail] = value;
-    fs.writeFileSync(bookingsFile, bookings);
+    fs.writeFileSync(bookingsFile, JSON.stringify(bookings));
 })
-
 
 module.exports = app;

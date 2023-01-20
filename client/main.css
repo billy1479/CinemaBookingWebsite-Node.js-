@@ -304,6 +304,11 @@ body {
     width: 250px;
 }
 
+.formSelect {
+    padding: 5px;
+    border-radius: 10px;
+}
+
 .formLabel {
     text-decoration: underline;
 }

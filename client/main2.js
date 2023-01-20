@@ -26,6 +26,7 @@ async function loadFilmNames() {
     const filmNamesResponse = await filmNamesObject.text();
     x = JSON.parse(filmNamesResponse);
     var listElements = '';
+    listElements += "<option value='False'>Select film</option>";
     x.forEach(function (y) {
         listElements += `<option value=${y[1]}>${y[0]}</option>`;
     })  
@@ -35,10 +36,23 @@ async function loadFilmNames() {
 function assignForm() {
 document.getElementById('bookingForm').addEventListener('submit', async function (e) {
     e.preventDefault();
-    console.log('this has been run')
-    // const x = new FormData(document.getElementById('bookingForm'));
-    // make dictionary here
-    const JSONx = JSON.stringify(Object.fromEntries(x));
+    var date = document.getElementById('dateInput').value;
+    var filmName = document.getElementById('filmSelect').value;
+    var nAdults = document.getElementById('adultNumberInput').value;
+    var nChildren = document.getElementById('childrenNumberInput').value;
+    var firstName = document.getElementById('firstNameInput').value;
+    var surname = document.getElementById('surnameInput').value;
+    var email = document.getElementById('emailInput').value;
+
+    if (date == '') {
+        
+    }
+
+
+
+    var x = {'email': email, 'date': date, 'film': filmName, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
+    const JSONx = JSON.stringify(x);
+    document.getElementById('bookingForm').reset();
     const formSubmission = await fetch(rootUrl + 'Bookings/MakeABooking', {
         method: 'POST',
         headers: {
@@ -46,9 +60,22 @@ document.getElementById('bookingForm').addEventListener('submit', async function
         },
         body: JSONx
     })
-    document.getElementById('bookingForm').reset();
-    // need to add response for JSON
 })}
+
+function assignSearchBar() {
+    document.getElementById('bookingSearch').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var userEmail = document.getElementById('topBarSearchInput').value;
+        const bookingResponse = await fetch(rootUrl + `Bookings/${userEmail}`);
+        const bookingText = await bookingResponse.text();
+        var bookingArray = JSON.parse(bookingText);
+        if (bookingArray[0] == 'False') {
+            // make modal so no booking was found with that email
+        } else {
+            // make modal appear with booking information associated with that email
+        }
+    })
+}
 
 function callerFunction() {
     loadCurrentFilms();
@@ -56,6 +83,7 @@ function callerFunction() {
     loadReruns();
     loadFilmNames();
     assignForm();
+    assignSearchBar();
 }
 
 document.addEventListener('DOMContentLoaded', callerFunction);
