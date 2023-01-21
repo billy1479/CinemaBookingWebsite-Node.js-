@@ -37,6 +37,16 @@ async function loadUpcomingFilms () {
     const upcomingFilmsObject = await fetch(rootUrl + 'upcomingFilms');
     const upcomingFilmsResponse = await upcomingFilmsObject.text();
     x = JSON.parse(upcomingFilmsResponse);
+    var myKeys = Object.keys(x);
+
+    // Need to get films for upcoming films
+    // need to order by date
+
+    // will need to split into 3 based off dates (make 6 entries into JSON)
+    
+
+
+
     // This returns the dictionary
 }
 
@@ -44,6 +54,7 @@ async function loadReruns () {
     const rerunsObject = await fetch(rootUrl + 'reruns');
     const rerunsResponse = await rerunsObject.text();
     x = JSON.parse(rerunsResponse);
+    var myKeys = Object.keys(x);
     // This returns the dictionary
 }
 
