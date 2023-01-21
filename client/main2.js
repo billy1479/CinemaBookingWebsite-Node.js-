@@ -1,18 +1,35 @@
-// For Server-functions
 rootUrl = 'http://127.0.0.1:5500/';
 async function loadCurrentFilms() {
     const currentFilmsObject = await fetch(rootUrl + 'currentFilms');
     const currentFilmsResponse = await currentFilmsObject.text();
-    x = JSON.parse(currentFilmsResponse);
-    
+    const x = JSON.parse(currentFilmsResponse);
+    var myKeys = Object.keys(x);
     var currentFilmContainers = document.getElementsByClassName('currentFilmContainer');
     var counter = 0;
-    // need to set up a loop that checks if the counter is odd for when to swap the positioning of the image with the text
-    // add a button element that works with a function not made yet - when clicked, takes the user to the booking page and has the date selected to today as well as the film already selected by the function
-    // Need to sort CSS for button however
-    currentFilmContainers.forEach(function (y) {
-        
-    })
+    var keyIndex = 0;
+    for (z = 0;z<currentFilmContainers.length;z++) {
+        var expression = '';
+        if (counter == 0) {
+            expression = `<img class="currentFilmImage" src="Images/${x[myKeys[keyIndex]][4]}"><div class="currentFilmDescription">
+            <p>${x[myKeys[keyIndex]][0]}</p>
+            <p>${x[myKeys[keyIndex]][1]}</p>
+            <p>${x[myKeys[keyIndex]][2]}</p>
+            <p>${x[myKeys[keyIndex]][3]}</p>
+            </div>`;
+            counter = 1;
+        } else {
+            expression = `<div class="currentFilmDescription">
+            <p>${x[myKeys[keyIndex]][0]}</p>
+            <p>${x[myKeys[keyIndex]][1]}</p>
+            <p>${x[myKeys[keyIndex]][2]}</p>
+            <p>${x[myKeys[keyIndex]][3]}</p>
+            </div>
+            <img class="currentFilmImage" src="Images/${x[myKeys[keyIndex]][4]}">`;
+            counter = 0
+        }
+        currentFilmContainers[z].innerHTML = expression;
+        keyIndex += 1;
+    }
     
 }
 
@@ -52,12 +69,6 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     var firstName = document.getElementById('firstNameInput').value;
     var surname = document.getElementById('surnameInput').value;
     var email = document.getElementById('emailInput').value;
-
-    if (date == '') {
-        
-    }
-
-
 
     var x = {'email': email, 'date': date, 'film': filmName, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
     const JSONx = JSON.stringify(x);
