@@ -152,9 +152,9 @@ function assignSearchBar() {
         if (document.getElementById('topBarSearchInput').value.includes('@')) {
             const bookingResponse = await fetch(rootUrl + `Bookings/${userEmail}`);
             const bookingText = await bookingResponse.text();
+            console.log(bookingText)
             var bookingArray = JSON.parse(bookingText);
             var filmTime, tempScreen;
-            console.log(bookingArray)
             if (bookingArray[0] == 'False') {
                 // make modal so no booking was found with that email
                 document.getElementById('searchline1').innerHTML = 'We have no email address matching that in our system.';
@@ -195,29 +195,4 @@ function callerFunction() {
 document.addEventListener('DOMContentLoaded', callerFunction);
 
 
-
-
-
-
-(async () => {
-    try {
-        const myParams = {"email": "test2@durham.ac.uk",
-        "date": "2023-01-24",
-        "film": "SMATSV",
-        "time": "screen1",
-        "noAdults": 1,
-        "noChild": 1,
-        "firstName": "Billy",
-        "surname": "Stapleton"
-    }
-        let x = JSON.stringify(myParams)
-        const filmName = await fetch('http://127.0.0.1:5500/Bookings/MakeABooking', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: x
-        });
-    } catch (err) {console.log(err)}
-})
-
+["2023-01-24","TRTB",'screen1',"1","1","Billy","Stapleton"]
