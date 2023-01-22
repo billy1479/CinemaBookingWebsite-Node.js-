@@ -193,6 +193,3 @@ function callerFunction() {
 }
 
 document.addEventListener('DOMContentLoaded', callerFunction);
-
-
-["2023-01-24","TRTB",'screen1',"1","1","Billy","Stapleton"]
