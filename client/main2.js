@@ -38,16 +38,19 @@ async function loadUpcomingFilms () {
     const upcomingFilmsResponse = await upcomingFilmsObject.text();
     x = JSON.parse(upcomingFilmsResponse);
     var myKeys = Object.keys(x);
-
-    // Need to get films for upcoming films
-    // need to order by date
-
-    // will need to split into 3 based off dates (make 6 entries into JSON)
-    
-
-
-
-    // This returns the dictionary
+    var keyIndex =  0;
+    var upcomingFilmContainers = document.getElementsByClassName('UFFElement');
+    for (z = 0;z<upcomingFilmContainers.length;z++) {
+        expression = `<h3>${x[myKeys[keyIndex]][0]}</h3>
+        <img class="UFFImage" src="Images/${x[myKeys[keyIndex]][4]}">
+        <div class="imageInformation">
+        <p>${x[myKeys[keyIndex]][1]}</p>
+        <p>Release Date - ${x[myKeys[keyIndex]][2]}</p>
+        <p>Age Rating - ${x[myKeys[keyIndex]][3]}</p>
+        </div>`;
+        keyIndex += 1;
+        upcomingFilmContainers[z].innerHTML = expression
+    }
 }
 
 async function loadReruns () {
@@ -55,6 +58,20 @@ async function loadReruns () {
     const rerunsResponse = await rerunsObject.text();
     x = JSON.parse(rerunsResponse);
     var myKeys = Object.keys(x);
+    var keyIndex =  0;
+    var rerunsFilmContainers = document.getElementsByClassName('RRElement');
+    for (z = 0;z<rerunsFilmContainers.length;z++) {
+        expression = `<h3>${x[myKeys[keyIndex]][0]}</h3>
+        <img class="UFFImage" src="Images/${x[myKeys[keyIndex]][5]}">
+        <div class="imageInformation">
+        <p>${x[myKeys[keyIndex]][1]}</p>
+        <p>Year - ${x[myKeys[keyIndex]][2]}</p>
+        <p>Duration - ${x[myKeys[keyIndex]][3]}</p>
+        <p>Age Rating - ${x[myKeys[keyIndex]][4]}</p>
+        </div>`;
+        keyIndex += 1;
+        rerunsFilmContainers[z].innerHTML = expression
+    }
     // This returns the dictionary
 }
 
@@ -80,6 +97,8 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     var firstName = document.getElementById('firstNameInput').value;
     var surname = document.getElementById('surnameInput').value;
     var email = document.getElementById('emailInput').value;
+
+    
 
     var x = {'email': email, 'date': date, 'film': filmName, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
     const JSONx = JSON.stringify(x);
