@@ -75,6 +75,7 @@ app.post('/Bookings/MakeABooking', function (req, resp) {
     var value = [date, film, filmTime, noOfAdults, noOfChildren, firstName, surname]
     bookings[userEmail] = value;
     fs.writeFileSync(bookingsFile, JSON.stringify(bookings));
+    resp.send(200)
 })
 
 module.exports = app;

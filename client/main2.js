@@ -166,6 +166,7 @@ function assignSearchBar() {
                 document.getElementById('searchline2').innerHTML = tempScreen
             }
             document.getElementById('bookingSearchModal').style.display = 'Block';
+            document.getElementById('topBarSearchInput').value = '';
         } else {
             alert('Please enter a valid email address')
         }
