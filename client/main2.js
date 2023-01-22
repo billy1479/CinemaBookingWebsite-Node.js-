@@ -117,10 +117,9 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     } else if (document.getElementById('emailInput').value == '' || !(document.getElementById('emailInput').value.includes('@'))) {
         alert('Error 8')
     } else {
-        document.getElementById('line1').innerHTML = 'You are booked to go see ' + filmName + ' at ' + filmTime;
-        document.getElementById('line2').innerHTML = tempScreen
-        document.getElementById('bookingModal').style.display = 'Block';
-
+        // document.getElementById('line1').innerHTML = 'You are booked to go see ' + filmName + ' at ' + filmTime;
+        // document.getElementById('line2').innerHTML = tempScreen
+        // document.getElementById('bookingModal').style.display = 'Block';
         var x = {'email': email, 'date': date, 'film': filmName, 'time': filmTime, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
         const JSONx = JSON.stringify(x);
         document.getElementById('bookingForm').reset();
@@ -132,6 +131,16 @@ document.getElementById('bookingForm').addEventListener('submit', async function
                 'Content-Type': 'application/json'
             },
             body: JSONx
+        }).then((response) => {
+            if (response.ok) {
+                console.log(response.status)
+                document.getElementById('line1').innerHTML = 'You are booked to go see ' + filmName + ' at ' + filmTime;
+                document.getElementById('line2').innerHTML = tempScreen
+                document.getElementById('bookingModal').style.display = 'Block';
+            }
+        }).catch((response) => {
+            alert('Disconnection from server - please wait for reconnection...')
+            console.log(response.status)
         })
     }
 })}
@@ -184,3 +193,31 @@ function callerFunction() {
 }
 
 document.addEventListener('DOMContentLoaded', callerFunction);
+
+
+
+
+
+
+(async () => {
+    try {
+        const myParams = {"email": "test2@durham.ac.uk",
+        "date": "2023-01-24",
+        "film": "SMATSV",
+        "time": "screen1",
+        "noAdults": 1,
+        "noChild": 1,
+        "firstName": "Billy",
+        "surname": "Stapleton"
+    }
+        let x = JSON.stringify(myParams)
+        const filmName = await fetch('http://127.0.0.1:5500/Bookings/MakeABooking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: x
+        });
+    } catch (err) {console.log(err)}
+})
+
