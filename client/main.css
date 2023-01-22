@@ -314,14 +314,25 @@ body {
     text-decoration: underline;
 }
 
-#bookingForm {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 99;
-    background-color: #343434;
+.modal {
+    text-align: center;
+    color: #0a1c3a;
+    padding-bottom: 20px;
+    position: fixed;
+    display: none;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+    border: 1px solid #343434;
     border-radius: 10px;
     transition: .5s;
+}
+
+.modalCloseButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 /* offers and gifts section */

@@ -51,11 +51,14 @@ app.get('/filmNames', function (req, resp) {
 app.get('/Bookings/:email', function (req,resp) {
     const email = req.params.email;
     const bookingEmails = Object.keys(bookings);
-    if (email in bookingEmails) {
+    // if (email in bookingEmails) {
+    //     result = bookings[email]
+    // } else {
+    //     result =  ['False'];
+    // }
+    try {
         result = bookings[email]
-    } else {
-        result =  ['False'];
-    }
+    } catch(err) {result = ['False']}
     resp.send(result);
 })
 
@@ -64,11 +67,12 @@ app.post('/Bookings/MakeABooking', function (req, resp) {
     var userEmail = req.body.email;
     var date = req.body.date;
     var film = req.body.film;
+    var filmTime = req.body.time;
     var noOfAdults = req.body.noAdults;
     var noOfChildren = req.body.noChild;
     var firstName = req.body.firstName;
     var surname = req.body.surname;
-    var value = [date, film, noOfAdults, noOfChildren, firstName, surname]
+    var value = [date, film, filmTime, noOfAdults, noOfChildren, firstName, surname]
     bookings[userEmail] = value;
     fs.writeFileSync(bookingsFile, JSON.stringify(bookings));
 })

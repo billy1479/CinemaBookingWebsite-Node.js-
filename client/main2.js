@@ -92,38 +92,84 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     e.preventDefault();
     var date = document.getElementById('dateInput').value;
     var filmName = document.getElementById('filmSelect').value;
+    var filmTime = document.getElementById('screenSelect').value;
     var nAdults = document.getElementById('adultNumberInput').value;
     var nChildren = document.getElementById('childrenNumberInput').value;
     var firstName = document.getElementById('firstNameInput').value;
     var surname = document.getElementById('surnameInput').value;
     var email = document.getElementById('emailInput').value;
+    var tempScreen;
+    if (filmTime == 'screen1') {
+        filmTime = '10.00AM';
+        tempScreen = 'Screen 1';
+    } else if (filmTime == 'screen2') {
+        filmTime = '3.00PM';
+        tempScreen = 'Screen 2;'
+    } else {
+        filmTime = '7.00PM';
+        tempScreen = 'Screen 3';
+    }
 
-    
+    if (document.getElementById('firstNameInput').value == '') {
+        alert('Error 6')
+    } else if (document.getElementById('surnameInput').value == '') {
+        alert('Error 7')
+    } else if (document.getElementById('emailInput').value == '' || !(document.getElementById('emailInput').value.includes('@'))) {
+        alert('Error 8')
+    } else {
+        document.getElementById('line1').innerHTML = 'You are booked to go see ' + filmName + ' at ' + filmTime;
+        document.getElementById('line2').innerHTML = tempScreen
+        document.getElementById('bookingModal').style.display = 'Block';
 
-    var x = {'email': email, 'date': date, 'film': filmName, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
-    const JSONx = JSON.stringify(x);
-    document.getElementById('bookingForm').reset();
-    const formSubmission = await fetch(rootUrl + 'Bookings/MakeABooking', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSONx
-    })
+        var x = {'email': email, 'date': date, 'film': filmName, 'time': filmTime, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
+        const JSONx = JSON.stringify(x);
+        document.getElementById('bookingForm').reset();
+        formSlide = 0;
+        formSlideChangeFunction();
+        const formSubmission = await fetch(rootUrl + 'Bookings/MakeABooking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSONx
+        })
+    }
 })}
 
 function assignSearchBar() {
     document.getElementById('bookingSearch').addEventListener('submit', async function (e) {
         e.preventDefault();
         var userEmail = document.getElementById('topBarSearchInput').value;
-        const bookingResponse = await fetch(rootUrl + `Bookings/${userEmail}`);
-        const bookingText = await bookingResponse.text();
-        var bookingArray = JSON.parse(bookingText);
-        if (bookingArray[0] == 'False') {
-            // make modal so no booking was found with that email
+        if (document.getElementById('topBarSearchInput').value.includes('@')) {
+            const bookingResponse = await fetch(rootUrl + `Bookings/${userEmail}`);
+            const bookingText = await bookingResponse.text();
+            var bookingArray = JSON.parse(bookingText);
+            var filmTime, tempScreen;
+            console.log(bookingArray)
+            if (bookingArray[0] == 'False') {
+                // make modal so no booking was found with that email
+                document.getElementById('searchline1').innerHTML = 'We have no email address matching that in our system.';
+                document.getElementById('searchline3').innerHTML = '';
+            } else {
+                // make modal appear with booking information associated with that email
+                if (bookingArray[2] == 'screen1') {
+                    filmTime = '10.00AM';
+                    tempScreen = 'Screen 1';
+                } else if (bookingArray[2] == 'screen2') {
+                    filmTime = '3.00PM';
+                    tempScreen = 'Screen 2;'
+                } else {
+                    filmTime = '7.00PM';
+                    tempScreen = 'Screen 3';
+                }
+                document.getElementById('searchline1').innerHTML = 'You are booked to go see ' + bookingArray[1] + ' at ' + filmTime
+                document.getElementById('searchline2').innerHTML = tempScreen
+            }
+            document.getElementById('bookingSearchModal').style.display = 'Block';
         } else {
-            // make modal appear with booking information associated with that email
+            alert('Please enter a valid email address')
         }
+        
     })
 }
 

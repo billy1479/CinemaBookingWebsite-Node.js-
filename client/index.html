@@ -44,6 +44,13 @@
                     </form>
                 </div>
             </div>
+            <div id="bookingSearchModal" class="modal">
+                <h2>Booking Search</h2>
+                <p id="searchline1">You are booked to go see Avengers at 10.00AM</p>
+                <p id="searchline2">Screen 1</p>
+                <p id="searchline3">Enjoy the show!</p>
+                <a class="modalCloseButton" onclick="document.getElementById('bookingSearchModal').style.display = 'None';">Continue</a>
+            </div>
         </div>
 
         <!-- container for main content -->
@@ -112,7 +119,14 @@
                 </div>
             </div>
             <div class="page" id="page2">
-                <div id="bookingModal"></div>
+                <div id="bookingModal" class="modal">
+                    <h2>Booking Complete!</h2>
+                    <p id="line1">You are booked to go see Avengers at 10.00AM</p>
+                    <p id="line2">Screen 1</p>
+                    <p>If you need to see this again, please search for your email in the top right search bar.</p>
+                    <p>Enjoy the show!</p>
+                    <a class="modalCloseButton" onclick="document.getElementById('bookingModal').style.display = 'None';">Continue</a>
+                </div>
                 <h2 class="title">Book your experience</h2>
                 <form action="" id="bookingForm">
                     <!-- Date -->
@@ -120,15 +134,20 @@
                         <ul class="formList" style="list-style: none;">
                             <li><label class="formLabel">Please select the date of your booking:</label></li>
                             <li><input type="date" class="formInput" id="dateInput" name="date"></li>
+                            <li><label class="formLabel">Please select the film you would like to watch:</label></li>
+                            <li><select class="formSelect" id="filmSelect" name="film"></select></li>
                         </ul>
                     </div>
                     <!-- For the film you're selecting -->
                     <!-- Number of guests -->
                     <div class="formSlide">
                         <ul class="formList"style="list-style: none;">
-                            <li><label class="formLabel">Please select the film you would like to watch:</label></li>
-                            <li><select class="formSelect" id="filmSelect" name="film">
-
+                            <li>Please choose which showing you would like to see:</li>
+                            <li><select class="formSelect" id="screenSelect">
+                                <option value="False">Please select your screen and time:</option>
+                                <option value="screen1">Screen 1 - 10.00AM</option>
+                                <option value="screen2">Screen 2 - 3.00PM</option>
+                                <option value="screen3">Screen 3 - 7.00PM</option>
                             </select></li>
                             <li><label class="formLabel">Adults:</label></li>
                             <li><input type="number" class="formInput" id="adultNumberInput" name="noAdults"></li>

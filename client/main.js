@@ -53,6 +53,40 @@ function decreaseSlide() {
 // for the form functions
 var formSlide = -1;
 function changeFormSlide() {
+    // change alerts for on screen message?
+    if (formSlide - 1 == 0) {
+        if (!document.getElementById('dateInput').value) {
+            alert('Error 1');
+            formSlide -= 1;
+        } else {
+            if (document.getElementById('filmSelect').value == 'False') {
+                alert('Error 2');
+                formSlide -= 1;
+            } else {
+                formSlideChangeFunction();
+            }
+        }
+    } else if (formSlide - 1 == 1) {
+        if (document.getElementById('screenSelect').value == 'False') {
+            alert('Error 3');
+            formSlide -= 1;
+        } else {
+            if (document.getElementById('adultNumberInput').value == '') {
+                alert('Error 4');
+                formSlide -= 1;
+            } else if (document.getElementById('childrenNumberInput').value == '') {
+                alert('Error 5');
+                formSlide -= 1;
+            } else {
+                formSlideChangeFunction()
+            }
+        }
+    } else {
+        formSlideChangeFunction();
+    }    
+}
+
+function formSlideChangeFunction() {
     slides = document.getElementsByClassName('formSlide');
     for (i=0;i<slides.length;i++) {
         slides[i].style.display = 'none';
@@ -83,8 +117,8 @@ function previousFormSlide() {
 function resetForm() {
     if (confirm('Would you like to reset your booking?')) {
         document.getElementById('bookingForm').reset();
-        formSlide = -1;
-        nextFormSlide();
+        formSlide = 0;
+        formSlideChangeFunction();
     }
 }
 
