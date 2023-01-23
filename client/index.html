@@ -55,6 +55,10 @@
 
         <!-- container for main content -->
         <div id="container">
+            <div id="alertBox">
+                <p id="alertMessage">This is an alert</p>
+                <span class="bi bi-x-lg" id="closeAlert" onclick="document.getElementById('alertBox').style.display = 'None';"></span>
+            </div>
             <div class="page" id="page1">
                 <!-- <h2 class="title">Home page</h2> -->
                 <div class="paragraph" id="name">
@@ -125,10 +129,6 @@
                     <p>If you need to see this again, please search for your email in the top right search bar.</p>
                     <p>Enjoy the show!</p>
                     <a class="modalCloseButton" onclick="document.getElementById('bookingModal').style.display = 'None';">Continue</a>
-                </div>
-                <div id="alertBox">
-                    <p id="alertMessage">This is an alert</p>
-                    <span class="bi bi-x-lg" id="closeAlert" onclick="document.getElementById('alertBox').style.display = 'None';"></span>
                 </div>
                 <h2 class="title">Book your experience</h2>
                 <form action="" id="bookingForm">

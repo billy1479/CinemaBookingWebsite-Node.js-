@@ -173,7 +173,8 @@ function assignSearchBar() {
             document.getElementById('bookingSearchModal').style.display = 'Block';
             document.getElementById('topBarSearchInput').value = '';
         } else {
-            alert('Please enter a valid email address')
+            document.getElementById('alertBox').style.display = 'Block';
+            document.getElementById('alertMessage').innerHTML = 'Please enter a valid email.';
         }
         
     })
