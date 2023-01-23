@@ -50,11 +50,13 @@ function changeFormSlide() {
     // change alerts for on screen message?
     if (formSlide - 1 == 0) {
         if (!document.getElementById('dateInput').value) {
-            alert('Error 1');
+            document.getElementById('alertBox').style.display = 'Block';
+            document.getElementById('alertMessage').innerHTML = 'Please select a date.';
             formSlide -= 1;
         } else {
             if (document.getElementById('filmSelect').value == 'False') {
-                alert('Error 2');
+                document.getElementById('alertBox').style.display = 'Block';
+                document.getElementById('alertMessage').innerHTML = 'Please select a film.';
                 formSlide -= 1;
             } else {
                 formSlideChangeFunction();
@@ -62,14 +64,17 @@ function changeFormSlide() {
         }
     } else if (formSlide - 1 == 1) {
         if (document.getElementById('screenSelect').value == 'False') {
-            alert('Error 3');
+            document.getElementById('alertBox').style.display = 'Block';
+            document.getElementById('alertMessage').innerHTML = 'Please select a screen.';
             formSlide -= 1;
         } else {
             if (document.getElementById('adultNumberInput').value == '') {
-                alert('Error 4');
+                document.getElementById('alertBox').style.display = 'Block';
+                document.getElementById('alertMessage').innerHTML = 'Please enter the number of adults.';
                 formSlide -= 1;
             } else if (document.getElementById('childrenNumberInput').value == '') {
-                alert('Error 5');
+                document.getElementById('alertBox').style.display = 'Block';
+                document.getElementById('alertMessage').innerHTML = 'Please enter the number of children.';
                 formSlide -= 1;
             } else {
                 formSlideChangeFunction()

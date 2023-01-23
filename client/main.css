@@ -232,6 +232,32 @@ body {
 
 /* for the booking form */
 
+#alertBox {
+    display: none;
+    position: fixed;
+    width: 98%;
+    top: 120px;
+    transition: .5s;
+    background-color: white;
+    color: #0a1c3a;
+    border-radius: 10px;
+    z-index: 99;
+}
+
+
+#alertMessage {
+    display: inline-block;
+    width: 80%;
+}
+
+#closeAlert {
+    display: inline-block;
+}
+
+#closeAlert:hover {
+    cursor: pointer;
+}
+
 #bookingForm {
     width: 100%;
     text-align: center;

@@ -110,11 +110,14 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     }
 
     if (document.getElementById('firstNameInput').value == '') {
-        alert('Error 6')
+        document.getElementById('alertBox').style.display = 'Block';
+        document.getElementById('alertMessage').innerHTML = 'Please enter your first name.';
     } else if (document.getElementById('surnameInput').value == '') {
-        alert('Error 7')
+        document.getElementById('alertBox').style.display = 'Block';
+        document.getElementById('alertMessage').innerHTML = 'Please enter your surname.';
     } else if (document.getElementById('emailInput').value == '' || !(document.getElementById('emailInput').value.includes('@'))) {
-        alert('Error 8')
+        document.getElementById('alertBox').style.display = 'Block';
+        document.getElementById('alertMessage').innerHTML = 'Please enter your email.';
     } else {
         var x = {'email': email, 'date': date, 'film': filmName, 'time': filmTime, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
         const JSONx = JSON.stringify(x);
