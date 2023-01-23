@@ -8,12 +8,12 @@ function changeTab(tabName) {
 
 function showSearchBox() {
     box = document.getElementById('topBarSearchInput');
-    box.style.width = '250px';
+    box.style.width = '350px';
 }
 
 function closeSearchBox() {
     box = document.getElementById('topBarSearchInput');
-    box.style.width = '50px';
+    box.style.width = '250px';
 }
 
 
@@ -121,12 +121,7 @@ function resetForm() {
     }
 }
 
-function pageLoad() {
-    changeTab('page1');
-    increaseSlide();
-    nextFormSlide();
-    getDate();
-}
+
 
 // for the buttons on the offer page moving to the element
 
@@ -170,6 +165,30 @@ function getDate() {
     year = currentDate.getFullYear();
     var myString = 'Current Showings : ' + dayofweek + ' ' + day + '/' + month + '/' + year;
     document.getElementById('currentShowingTitle').innerHTML = myString;
+}
+
+function setMinDate() {
+    // This sets the minimum date for the booking form to be todays date
+    var currentDate = new Date();
+    currentDay = currentDate.getDate()
+    currentMonth = currentDate.getMonth() + 1
+    currentYear = currentDate.getFullYear();
+    if (currentDay < 10) {
+        currentDay = '0' + currentDate
+    }
+    if (currentMonth < 10) {
+        currentMonth = '0' + currentMonth
+    }
+    minDate = currentYear + '-' + currentMonth + '-' + currentDay;
+    document.getElementById('dateInput').setAttribute('min', minDate)
+}
+
+function pageLoad() {
+    changeTab('page1');
+    increaseSlide();
+    nextFormSlide();
+    getDate();
+    setMinDate();
 }
 
 document.addEventListener('DOMContentLoaded', pageLoad)

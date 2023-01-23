@@ -50,7 +50,7 @@ app.get('/filmNames', function (req, resp) {
 // For the search bar
 app.get('/Bookings/:email', function (req,resp) {
     const email = req.params.email;
-    const bookingEmails = Object.keys(bookings);
+    const bookingEmails = Object.keys(bookings);                            
     try {
         result = bookings[email]
     } catch(err) {result = ['False']}
