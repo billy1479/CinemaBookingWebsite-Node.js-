@@ -72,6 +72,14 @@ app.post('/Bookings/MakeABooking', function (req, resp) {
     var noOfChildren = req.body.noChild;
     var firstName = req.body.firstName;
     var surname = req.body.surname;
+
+    filmNameArray = app.get('/filmNames');
+    for (i=0;i<filmNameArray.length;i++) {
+        if (filmNameArray[i][0] == film) {
+            film = filmNameArray[i][1];
+        }
+    }
+
     var value = [date, film, filmTime, noOfAdults, noOfChildren, firstName, surname]
     bookings[userEmail] = value;
     fs.writeFileSync(bookingsFile, JSON.stringify(bookings));
