@@ -72,7 +72,6 @@ async function loadReruns () {
         keyIndex += 1;
         rerunsFilmContainers[z].innerHTML = expression
     }
-    // This returns the dictionary
 }
 
 async function loadFilmNames() {
@@ -82,7 +81,7 @@ async function loadFilmNames() {
     var listElements = '';
     listElements += "<option value='False'>Select film</option>";
     x.forEach(function (y) {
-        listElements += `<option value=${y[1]}>${y[0]}</option>`;
+        listElements += `<option value="${y[0]}">${y[0]}</option>`;
     })  
     document.getElementById('filmSelect').innerHTML = listElements;
 }
@@ -117,9 +116,6 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     } else if (document.getElementById('emailInput').value == '' || !(document.getElementById('emailInput').value.includes('@'))) {
         alert('Error 8')
     } else {
-        // document.getElementById('line1').innerHTML = 'You are booked to go see ' + filmName + ' at ' + filmTime;
-        // document.getElementById('line2').innerHTML = tempScreen
-        // document.getElementById('bookingModal').style.display = 'Block';
         var x = {'email': email, 'date': date, 'film': filmName, 'time': filmTime, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
         const JSONx = JSON.stringify(x);
         document.getElementById('bookingForm').reset();
@@ -133,7 +129,6 @@ document.getElementById('bookingForm').addEventListener('submit', async function
             body: JSONx
         }).then((response) => {
             if (response.ok) {
-                console.log(response.status)
                 document.getElementById('line1').innerHTML = 'You are booked to go see ' + filmName + ' at ' + filmTime;
                 document.getElementById('line2').innerHTML = tempScreen
                 document.getElementById('bookingModal').style.display = 'Block';
@@ -156,11 +151,9 @@ function assignSearchBar() {
             var bookingArray = JSON.parse(bookingText);
             var filmTime, tempScreen;
             if (bookingArray[0] == 'False') {
-                // make modal so no booking was found with that email
                 document.getElementById('searchline1').innerHTML = 'We have no email address matching that in our system.';
                 document.getElementById('searchline3').innerHTML = '';
             } else {
-                // make modal appear with booking information associated with that email
                 if (bookingArray[2] == 'screen1') {
                     filmTime = '10.00AM';
                     tempScreen = 'Screen 1';
