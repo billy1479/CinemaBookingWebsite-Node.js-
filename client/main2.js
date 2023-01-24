@@ -3,7 +3,7 @@ async function loadCurrentFilms () {
     const currentFilmsObject = await fetch(rootUrl + 'currentFilms');
     const currentFilmsResponse = await currentFilmsObject.text();
     const x = JSON.parse(currentFilmsResponse);
-    let myKeys = Object.keys(x);
+    const myKeys = Object.keys(x);
     const currentFilmContainers = document.getElementsByClassName('currentFilmContainer');
     let counter = 0;
     let keyIndex = 0;
@@ -35,12 +35,12 @@ async function loadCurrentFilms () {
 async function loadUpcomingFilms () {
     const upcomingFilmsObject = await fetch(rootUrl + 'upcomingFilms');
     const upcomingFilmsResponse = await upcomingFilmsObject.text();
-    let x = JSON.parse(upcomingFilmsResponse);
-    let myKeys = Object.keys(x);
+    const x = JSON.parse(upcomingFilmsResponse);
+    const myKeys = Object.keys(x);
     let keyIndex = 0;
     const upcomingFilmContainers = document.getElementsByClassName('UFFElement');
     for (let z = 0; z < upcomingFilmContainers.length; z++) {
-        let expression = `<h3>${x[myKeys[keyIndex]][0]}</h3>
+        const expression = `<h3>${x[myKeys[keyIndex]][0]}</h3>
         <img class="UFFImage" src="Images/${x[myKeys[keyIndex]][4]}">
         <div class="imageInformation">
         <p>${x[myKeys[keyIndex]][1]}</p>
@@ -55,12 +55,12 @@ async function loadUpcomingFilms () {
 async function loadReruns () {
     const rerunsObject = await fetch(rootUrl + 'reruns');
     const rerunsResponse = await rerunsObject.text();
-    let x = JSON.parse(rerunsResponse);
-    let myKeys = Object.keys(x);
-    let keyIndex =  0;
+    const x = JSON.parse(rerunsResponse);
+    const myKeys = Object.keys(x);
+    let keyIndex = 0;
     const rerunsFilmContainers = document.getElementsByClassName('RRElement');
     for (let z = 0; z < rerunsFilmContainers.length; z++) {
-        let expression = `<h3>${x[myKeys[keyIndex]][0]}</h3>
+        const expression = `<h3>${x[myKeys[keyIndex]][0]}</h3>
         <img class="UFFImage" src="Images/${x[myKeys[keyIndex]][5]}">
         <div class="imageInformation">
         <p>${x[myKeys[keyIndex]][1]}</p>
@@ -76,7 +76,7 @@ async function loadReruns () {
 async function loadFilmNames () {
     const filmNamesObject = await fetch(rootUrl + 'filmNames');
     const filmNamesResponse = await filmNamesObject.text();
-    let x = JSON.parse(filmNamesResponse);
+    const x = JSON.parse(filmNamesResponse);
     let listElements = '';
     listElements += "<option value='False'>Select film</option>";
     x.forEach(function (y) {
@@ -88,14 +88,14 @@ async function loadFilmNames () {
 function assignForm () {
 document.getElementById('bookingForm').addEventListener('submit', async function (e) {
     e.preventDefault();
-    let date = document.getElementById('dateInput').value;
-    let filmName = document.getElementById('filmSelect').value;
+    const date = document.getElementById('dateInput').value;
+    const filmName = document.getElementById('filmSelect').value;
     let filmTime = document.getElementById('screenSelect').value;
-    let nAdults = document.getElementById('adultNumberInput').value;
-    let nChildren = document.getElementById('childrenNumberInput').value;
-    let firstName = document.getElementById('firstNameInput').value;
-    let surname = document.getElementById('surnameInput').value;
-    let email = document.getElementById('emailInput').value;
+    const nAdults = document.getElementById('adultNumberInput').value;
+    const nChildren = document.getElementById('childrenNumberInput').value;
+    const firstName = document.getElementById('firstNameInput').value;
+    const surname = document.getElementById('surnameInput').value;
+    const email = document.getElementById('emailInput').value;
     let tempScreen;
     if (filmTime == 'screen1') {
         filmTime = '10.00AM';
@@ -115,7 +115,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     } else if (document.getElementById('emailInput').value == '' || !(document.getElementById('emailInput').value.includes('@'))) {
         makeAlertBox('Please enter your email.');
     } else {
-        let x = {'email': email, 'date': date, 'film': filmName, 'time': filmTime, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname};
+        const x = {'email': email, 'date': date, 'film': filmName, 'time': filmTime, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname};
         const JSONx = JSON.stringify(x);
         const formSubmission = await fetch(rootUrl + 'Bookings/MakeABooking', {
             method: 'POST',
@@ -142,11 +142,11 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 function assignSearchBar () {
     document.getElementById('bookingSearch').addEventListener('submit', async function (e) {
         e.preventDefault();
-        let userEmail = document.getElementById('topBarSearchInput').value;
+        const userEmail = document.getElementById('topBarSearchInput').value;
         if (document.getElementById('topBarSearchInput').value.includes('@')) {
             const bookingResponse = await fetch(rootUrl + `Bookings/${userEmail}`);
             const bookingText = await bookingResponse.text();
-            let bookingArray = JSON.parse(bookingText);
+            const bookingArray = JSON.parse(bookingText);
             let filmTime, tempScreen;
             if (bookingArray[0] == 'False') {
                 document.getElementById('searchline1').innerHTML = 'We have no email address matching that in our system.';

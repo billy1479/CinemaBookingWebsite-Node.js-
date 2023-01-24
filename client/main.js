@@ -1,53 +1,51 @@
-function changeTab(tabName) {
-    tabs = document.getElementsByClassName('page');
-    for (i=0;i<tabs.length;i++) {
+function changeTab (tabName) {
+    const tabs = document.getElementsByClassName('page');
+    for (let i = 0; i < tabs.length; i++) {
         tabs[i].style.display = 'none';
     }
     document.getElementById(tabName).style.display = 'block';
 }
 
-function showSearchBox() {
-    box = document.getElementById('topBarSearchInput');
+function showSearchBox () {
+    const box = document.getElementById('topBarSearchInput');
     box.style.width = '350px';
 }
 
-function closeSearchBox() {
-    box = document.getElementById('topBarSearchInput');
+function closeSearchBox () {
+    const box = document.getElementById('topBarSearchInput');
     box.style.width = '250px';
 }
 
-
 // Functions for slide changing
-var slideNumber = -1;
-var currentSlide = slideNumber;
-var slideMax = 2;
-function changeSlide() {
-    slides = document.getElementsByClassName('slides');
-    for (i=0;i<slides.length;i++) {
+const slideNumber = -1;
+let currentSlide = slideNumber;
+const slideMax = 2;
+function changeSlide () {
+    const slides = document.getElementsByClassName('slides');
+    for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';
     }
     if (currentSlide > slideMax) {
-        currentSlide = 0
+        currentSlide = 0;
     } else if (currentSlide < 0) {
-        currentSlide = slideMax
+        currentSlide = slideMax;
     }
     slides[currentSlide].style.display = 'Block';
 }
 
-function increaseSlide() {
+function increaseSlide () {
     currentSlide += 1;
     changeSlide();
 }
 
-function decreaseSlide() {
+function decreaseSlide () {
     currentSlide -= 1;
     changeSlide();
 }
 
 // for the form functions
-var formSlide = -1;
-function changeFormSlide() {
-    // change alerts for on screen message?
+let formSlide = -1;
+function changeFormSlide () {
     if (formSlide - 1 == 0) {
         if (!document.getElementById('dateInput').value) {
             makeAlertBox('Please select a date.');
@@ -77,12 +75,12 @@ function changeFormSlide() {
         }
     } else {
         formSlideChangeFunction();
-    }    
+    }
 }
 
-function formSlideChangeFunction() {
-    slides = document.getElementsByClassName('formSlide');
-    for (i=0;i<slides.length;i++) {
+function formSlideChangeFunction () {
+    const slides = document.getElementsByClassName('formSlide');
+    for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';
     }
     // remove form change button when end of form is reached
@@ -97,18 +95,18 @@ function formSlideChangeFunction() {
     slides[formSlide].style.display = 'Block';
 }
 
-function nextFormSlide() {
+function nextFormSlide () {
     formSlide += 1;
     changeFormSlide();
 }
 
-function previousFormSlide() {
+function previousFormSlide () {
     formSlide -= 1;
     changeFormSlide();
 }
 
 // for checking you want to reset the form
-function resetForm() {
+function resetForm () {
     if (confirm('Would you like to reset your booking?')) {
         document.getElementById('bookingForm').reset();
         formSlide = 0;
@@ -117,27 +115,24 @@ function resetForm() {
 }
 // for the buttons on the offer page moving to the element
 
-function moveTo(x) {
-    var obj = document.getElementById(x)
-    pageOffset = 80;
-    objPosition = obj.getBoundingClientRect().top
-    var newPosition = objPosition - pageOffset;
+function moveTo (x) {
+    const obj = document.getElementById(x);
+    const pageOffset = 80;
+    const objPosition = obj.getBoundingClientRect().top;
+    const newPosition = objPosition - pageOffset;
     window.scrollTo({
         top: newPosition,
-        behavior: "smooth";
-    })
+        behavior: 'smooth'
+    });
 }
 
 // for dropdowns on offer page
 
-function showDropdown(x,y) {
+function showDropdown (x, y) {
     if (document.getElementById(y).style.display == 'block') {
-        console.log('hello')
         document.getElementById(x).style.transform = 'ScaleY(1)';
         document.getElementById(y).style.display = 'None';
-        
     } else {
-        console.log('this has run')
         document.getElementById(x).style.transform = 'ScaleY(-1)';
         document.getElementById(y).style.display = 'block';
         document.getElementById(y).style.opacity = '0.9';
@@ -146,41 +141,41 @@ function showDropdown(x,y) {
 
 // for getting the date for the home page
 
-function getDate() {
-    daysofweekArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    var currentDate = new Date();
-    var dayofweek,day, month, year;
+function getDate () {
+    const daysofweekArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const currentDate = new Date();
+    let dayofweek;
     dayofweek = currentDate.getDay();
     dayofweek = daysofweekArray[dayofweek - 1];
-    day = currentDate.getDate();
-    month = currentDate.getMonth() + 1;
-    year = currentDate.getFullYear();
-    var myString = 'Current Showings : ' + dayofweek + ' ' + day + '/' + month + '/' + year;
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear();
+    const myString = 'Current Showings : ' + dayofweek + ' ' + day + '/' + month + '/' + year;
     document.getElementById('currentShowingTitle').innerHTML = myString;
 }
 
-function setMinDate() {
+function setMinDate () {
     // This sets the minimum date for the booking form to be todays date
-    var currentDate = new Date();
-    currentDay = currentDate.getDate()
-    currentMonth = currentDate.getMonth() + 1
-    currentYear = currentDate.getFullYear();
+    const currentDate = new Date();
+    let currentDay = currentDate.getDate();
+    let currentMonth = currentDate.getMonth() + 1;
+    const currentYear = currentDate.getFullYear();
     if (currentDay < 10) {
-        currentDay = '0' + currentDate
+        currentDay = '0' + currentDate;
     }
     if (currentMonth < 10) {
-        currentMonth = '0' + currentMonth
+        currentMonth = '0' + currentMonth;
     }
-    minDate = currentYear + '-' + currentMonth + '-' + currentDay;
+    const minDate = currentYear + '-' + currentMonth + '-' + currentDay;
     document.getElementById('dateInput').setAttribute('min', minDate);
 }
 
-function makeAlertBox(message) {
+function makeAlertBox (message) {
     document.getElementById('alertBox').style.display = 'Block';
     document.getElementById('alertMessage').innerHTML = message;
 }
 
-function pageLoad() {
+function pageLoad () {
     changeTab('page1');
     increaseSlide();
     nextFormSlide();
