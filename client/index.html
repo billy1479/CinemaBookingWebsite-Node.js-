@@ -8,27 +8,16 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>WS Films</title>
-        <!-- Custom fonts for this template-->
-        <!-- <link href="general/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
         <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
-    
-        <!-- Custom styles for this template-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="main.css">
-
-        <!-- For icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     </head>
-    <!-- Start of the page body -->
     <body>
-        <!-- body will consist of the top navigation bar, the footer at the bottom, the main page between the two which will be split up into seperate 'tabs' -->
-        <!-- top nav bar -->
         <div id="topBar">
             <div class="tobBarButtonContainer" onmouseleave="closeSearchBox()">
-                <!-- container for button 1 -->
-                <!-- cinema logo here -->
                 <span>
                     <a class="topBarButton" onclick="changeTab('page1')">Home</a> |
                     <a class="topBarButton" onclick="changeTab('page2')">Book</a> |
@@ -36,7 +25,6 @@
                     <a class="topBarButton" onclick="changeTab('page4')">Offers and Gifts</a>
                 </span>
                 <div class="topBarButton" id="topBarSearch">
-                    <!-- This will allow searching for a film and will then give a list of the films that are returned from the search, then let the user pick one and open a model / link to it
                      -->
                     <form id="bookingSearch">
                         <input id="topBarSearchInput" placeholder="Please enter email here...">
@@ -53,14 +41,12 @@
             </div>
         </div>
 
-        <!-- container for main content -->
         <div id="container">
             <div id="alertBox">
                 <p id="alertMessage">This is an alert</p>
                 <span class="bi bi-x-lg" id="closeAlert" onclick="document.getElementById('alertBox').style.display = 'None';"></span>
             </div>
             <div class="page" id="page1">
-                <!-- <h2 class="title">Home page</h2> -->
                 <div class="paragraph" id="name">
                     <h1>WS Films</h1>
                 </div>
@@ -71,10 +57,7 @@
                     <p>Dont forget to see the classic films we re-run weekly as well!</p>
                 </div>
                 <div class="paragraph" id="slideshowArea">
-                    <!-- There will be a 4 picture slideshow of current films -->
-                    <!-- <p>slideshow</p> -->
                     <div class="slides" id="filmSlide">
-                        <!-- This will have content loaded via JS -->
                         <img alt="slide1Image" src="Images/cinemaBackground1.jpg" class="slideImage">
                         <div class="slideText">
                             <h2>The Home of Modern Cinema</h2>
@@ -83,7 +66,6 @@
                         </div>
                     </div>
                     <div class="slides" id="offerSlide">
-                        <!-- this picture is bad -->
                         <img src="Images/cinemaBackground2.jpg" class="slideImage">
                         <div class="slideText">
                             <h2>Never Miss a thing!</h2>
@@ -100,7 +82,6 @@
                             <p>Dont be afraid to have a look <a onclick="changeTab('page3')" style="text-decoration: underline; cursor: pointer;">here</a></p>
                         </div>
                     </div>
-                    <!-- These will need to be centred and placed on either side of the screen -->
                     <a id="slideChange" class="bi bi-caret-right-fill next" onclick="increaseSlide()"></a>
                     <a id="slideChange" class="bi bi-caret-left-fill previous" onclick="decreaseSlide()"></a>
                 </div>
@@ -108,7 +89,6 @@
                     <h2 id="currentShowingTitle"></h2>
                 </div>
                 <div class="paragraph">
-                    <!-- current film information will go here -->
                     <div class="currentFilmContainer">
                     </div> 
                     <div class="currentFilmContainer">
@@ -132,7 +112,6 @@
                 </div>
                 <h2 class="title">Book your experience</h2>
                 <form action="" id="bookingForm">
-                    <!-- Date -->
                     <div class="formSlide">
                         <ul class="formList" style="list-style: none;">
                             <li><label class="formLabel">Please select the date of your booking:</label></li>
@@ -141,8 +120,6 @@
                             <li><select class="formSelect" id="filmSelect" name="film"></select></li>
                         </ul>
                     </div>
-                    <!-- For the film you're selecting -->
-                    <!-- Number of guests -->
                     <div class="formSlide">
                         <ul class="formList"style="list-style: none;">
                             <li>Please choose which showing you would like to see:</li>
@@ -174,7 +151,6 @@
                 <button class="bi bi-arrow-right" id="formChangeButtonRight" onclick="nextFormSlide()"></button>
                 <button class="bi bi-arrow-counterclockwise" id="formResetButton" onclick="resetForm()"></button>
             </div>
-            <!-- current films has been added to home page -->
             <div class="page" id="page3">
                 <h2 class="title">Upcoming Films and Re-runs</h2>
                 <div class="upcomingFilmFrame">
@@ -218,7 +194,6 @@
                 </div>
             </div>
             <div class="page" id="page4">
-                <!-- Add dropdown buttons for each section -->
                 <h2 class="title">Offers and Gifts</h2>
                 <div class="buttonFrame">
                     <button onclick="moveTo('offerPage1')">Membership</button>
@@ -268,7 +243,6 @@
         </div>
         <div id="footer">
             <div class="thefooter">
-                <!-- This is where the footer data will go like the location, copyright and my name -->
                 <p>WS Films - Developed by William Stapleton</p>
             </div>
             <div class="thefooter" style="float: right;">
@@ -277,7 +251,7 @@
         </div>
     </body>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <!-- JS imports for the website -->
+
     <script src="main.js"></script>
     <script src="main2.js"></script>
 
