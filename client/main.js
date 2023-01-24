@@ -46,6 +46,7 @@ function decreaseSlide () {
 // for the form functions
 let formSlide = -1;
 function changeFormSlide () {
+    console.log(formSlide)
     if (formSlide - 1 == 0) {
         if (!document.getElementById('dateInput').value) {
             makeAlertBox('Please select a date.');
@@ -63,22 +64,26 @@ function changeFormSlide () {
             makeAlertBox('Please select a screen.');
             formSlide -= 1;
         } else {
-            if (document.getElementById('adultNumberInput').value == '') {
+            if (document.getElementById('adultNumberInput').value == '' || document.getElementById('adultNumberInput').value < 0) {
                 makeAlertBox('Please enter the number of adults');
                 formSlide -= 1;
-            } else if (document.getElementById('childrenNumberInput').value == '') {
+            } else if (document.getElementById('childrenNumberInput').value == '' || document.getElementById('childrenNumberInput').value < 0) {
                 makeAlertBox('Please enter the number of children.');
                 formSlide -= 1;
             } else {
+                if (document.getElementById('adultNumberInput').value == 0 && document.getElementById('childrenNumberInput').value == 0) {
+                    makeAlertBox('Please enter a valid number of people.')
+                    formSlide -= 1;
+                } else {
                 formSlideChangeFunction(formSlide);
-            }
+                }}
         }
     } else {
         formSlideChangeFunction(formSlide);
     }
 }
 
-function formSlideChangeFunction (formSlide) {
+function formSlideChangeFunction () {
     const slides = document.getElementsByClassName('formSlide');
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';

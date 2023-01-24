@@ -139,8 +139,8 @@ document.getElementById('bookingForm').addEventListener('submit', async function
                 document.getElementById('line2').innerHTML = tempScreen;
                 document.getElementById('bookingModal').style.display = 'Block';
                 document.getElementById('bookingForm').reset();
-                let formSlide = 0;
-                formSlideChangeFunction(formSlide);
+                formSlide = 0;
+                formSlideChangeFunction();
                 document.getElementById('alertBox').style.display = 'None';
             }
         }).catch((response) => {
