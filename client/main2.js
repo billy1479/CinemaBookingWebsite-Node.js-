@@ -1,4 +1,13 @@
 const rootUrl = 'http://127.0.0.1:5500/';
+
+let socket = io();
+socket.on('disconnect', (socket) => {
+    makeAlertBox('Disconnected from server - please wait for reconnection')
+});
+socket.on('connect', () => {
+    document.getElementById('alertBox').style.display = 'None';
+});
+
 async function loadCurrentFilms () {
     const currentFilmsObject = await fetch(rootUrl + 'currentFilms');
     const currentFilmsResponse = await currentFilmsObject.text();

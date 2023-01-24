@@ -1,7 +1,18 @@
 const app = require('./app.js');
-const hostname = '127.0.0.1';
-const port = 5500;
+const http = require('http');
+const myServer = http.createServer(app);
+const { Server } = require('socket.io');
+const mySocket = new Server(myServer);
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+myServer.listen(5500, () => {
+  console.log('Server is on');
 });
+
+mySocket.on('connection', (socket) => {
+  console.log('a user has connected');
+  socket.on('disconnect', () => {
+    console.log('a user has disconnected');
+  });
+});
+
+// https://socket.io/get-started/chat
