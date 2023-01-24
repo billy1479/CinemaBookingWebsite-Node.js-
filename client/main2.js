@@ -126,11 +126,11 @@ document.getElementById('bookingForm').addEventListener('submit', async function
         }).then((response) => {
             if (response.ok) {
                 document.getElementById('line1').innerHTML = 'You are booked to go see ' + filmName + ' at ' + filmTime;
-                document.getElementById('line2').innerHTML = tempScreen
+                document.getElementById('line2').innerHTML = tempScreen;
                 document.getElementById('bookingModal').style.display = 'Block';
                 document.getElementById('bookingForm').reset();
                 let formSlide = 0;
-                formSlideChangeFunction();
+                formSlideChangeFunction(formSlide);
             }
         }).catch((response) => {
             makeAlertBox('Disconnection from server - please wait for reconnection...');

@@ -55,7 +55,7 @@ function changeFormSlide () {
                 makeAlertBox('Please select a film.');
                 formSlide -= 1;
             } else {
-                formSlideChangeFunction();
+                formSlideChangeFunction(formSlide);
             }
         }
     } else if (formSlide - 1 == 1) {
@@ -70,15 +70,15 @@ function changeFormSlide () {
                 makeAlertBox('Please enter the number of children.');
                 formSlide -= 1;
             } else {
-                formSlideChangeFunction();
+                formSlideChangeFunction(formSlide);
             }
         }
     } else {
-        formSlideChangeFunction();
+        formSlideChangeFunction(formSlide);
     }
 }
 
-function formSlideChangeFunction () {
+function formSlideChangeFunction (formSlide) {
     const slides = document.getElementsByClassName('formSlide');
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';
@@ -110,7 +110,7 @@ function resetForm () {
     if (confirm('Would you like to reset your booking?')) {
         document.getElementById('bookingForm').reset();
         formSlide = 0;
-        formSlideChangeFunction();
+        formSlideChangeFunction(formSlide);
     }
 }
 // for the buttons on the offer page moving to the element
