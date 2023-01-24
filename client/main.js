@@ -1,7 +1,7 @@
 function changeTab(tabName) {
     tabs = document.getElementsByClassName('page');
     for (i=0;i<tabs.length;i++) {
-        tabs[i].style.display = 'none';   
+        tabs[i].style.display = 'none';
     }
     document.getElementById(tabName).style.display = 'block';
 }
@@ -115,9 +115,6 @@ function resetForm() {
         formSlideChangeFunction();
     }
 }
-
-
-
 // for the buttons on the offer page moving to the element
 
 function moveTo(x) {
@@ -127,7 +124,7 @@ function moveTo(x) {
     var newPosition = objPosition - pageOffset;
     window.scrollTo({
         top: newPosition,
-        behavior: "smooth"
+        behavior: "smooth";
     })
 }
 

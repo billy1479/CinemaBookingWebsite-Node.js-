@@ -139,15 +139,15 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 });
 }
 
-function assignSearchBar() {
+function assignSearchBar () {
     document.getElementById('bookingSearch').addEventListener('submit', async function (e) {
         e.preventDefault();
-        var userEmail = document.getElementById('topBarSearchInput').value;
+        let userEmail = document.getElementById('topBarSearchInput').value;
         if (document.getElementById('topBarSearchInput').value.includes('@')) {
             const bookingResponse = await fetch(rootUrl + `Bookings/${userEmail}`);
             const bookingText = await bookingResponse.text();
-            var bookingArray = JSON.parse(bookingText);
-            var filmTime, tempScreen;
+            let bookingArray = JSON.parse(bookingText);
+            let filmTime, tempScreen;
             if (bookingArray[0] == 'False') {
                 document.getElementById('searchline1').innerHTML = 'We have no email address matching that in our system.';
                 document.getElementById('searchline3').innerHTML = '';
@@ -157,24 +157,23 @@ function assignSearchBar() {
                     tempScreen = 'Screen 1';
                 } else if (bookingArray[2] == 'screen2') {
                     filmTime = '3.00PM';
-                    tempScreen = 'Screen 2;'
+                    tempScreen = 'Screen 2';
                 } else {
                     filmTime = '7.00PM';
                     tempScreen = 'Screen 3';
                 }
                 document.getElementById('searchline1').innerHTML = 'You are booked to go see ' + bookingArray[1] + ' at ' + filmTime
-                document.getElementById('searchline2').innerHTML = tempScreen
+                document.getElementById('searchline2').innerHTML = tempScreen;
             }
             document.getElementById('bookingSearchModal').style.display = 'Block';
             document.getElementById('topBarSearchInput').value = '';
         } else {
-            makeAlertBox('Please enter a valid email.')
+            makeAlertBox('Please enter a valid email.');
         }
-        
-    })
+    });
 }
 
-function callerFunction() {
+function callerFunction () {
     loadCurrentFilms();
     loadUpcomingFilms();
     loadReruns();
@@ -182,6 +181,4 @@ function callerFunction() {
     assignForm();
     assignSearchBar();
 }
- 
 document.addEventListener('DOMContentLoaded', callerFunction);
-
