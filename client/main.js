@@ -88,6 +88,7 @@ function formSlideChangeFunction (formSlide) {
         document.getElementById('formChangeButtonRight').style.display = 'None';
     } else if (formSlide == 0) {
         document.getElementById('formChangeButtonLeft').style.display = 'None';
+        document.getElementById('formChangeButtonRight').style.display = 'Block';
     } else {
         document.getElementById('formChangeButtonLeft').style.display = 'Block';
         document.getElementById('formChangeButtonRight').style.display = 'Block';

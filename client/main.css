@@ -241,7 +241,7 @@ body {
     background-color: white;
     color: #0a1c3a;
     border-radius: 10px;
-    z-index: 99;
+    z-index: 98;
 }
 
 
@@ -354,6 +354,7 @@ body {
     border: 1px solid #343434;
     border-radius: 10px;
     transition: .5s;
+    z-index: 99;
 }
 
 .modalCloseButton:hover {

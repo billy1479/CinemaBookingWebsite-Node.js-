@@ -1,7 +1,7 @@
-const rootUrl = 'http://127.0.0.1:5500/';
+const rootUrl = 'http://127.0.0.1:8090/';
 
 let socket = io();
-socket.on('disconnect', (socket) => {
+socket.on('disconnect', () => {
     makeAlertBox('Disconnected from server - please wait for reconnection')
     document.getElementById('closeAlert').style.display = 'None';
 });
@@ -141,6 +141,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
                 document.getElementById('bookingForm').reset();
                 let formSlide = 0;
                 formSlideChangeFunction(formSlide);
+                document.getElementById('alertBox').style.display = 'None';
             }
         }).catch((response) => {
             makeAlertBox('Disconnection from server - please wait for reconnection...');
