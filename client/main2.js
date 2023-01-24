@@ -3,6 +3,7 @@ const rootUrl = 'http://127.0.0.1:5500/';
 let socket = io();
 socket.on('disconnect', (socket) => {
     makeAlertBox('Disconnected from server - please wait for reconnection')
+    document.getElementById('closeAlert').style.display = 'None';
 });
 socket.on('connect', () => {
     document.getElementById('alertBox').style.display = 'None';
