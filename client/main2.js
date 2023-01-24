@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 rootUrl = 'http://127.0.0.1:5500/';
 async function loadCurrentFilms() {
     const currentFilmsObject = await fetch(rootUrl + 'currentFilms');
@@ -110,14 +112,11 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     }
 
     if (document.getElementById('firstNameInput').value == '') {
-        document.getElementById('alertBox').style.display = 'Block';
-        document.getElementById('alertMessage').innerHTML = 'Please enter your first name.';
+        makeAlertBox('Please enter your first name.');
     } else if (document.getElementById('surnameInput').value == '') {
-        document.getElementById('alertBox').style.display = 'Block';
-        document.getElementById('alertMessage').innerHTML = 'Please enter your surname.';
+        makeAlertBox('Please enter your surname.');
     } else if (document.getElementById('emailInput').value == '' || !(document.getElementById('emailInput').value.includes('@'))) {
-        document.getElementById('alertBox').style.display = 'Block';
-        document.getElementById('alertMessage').innerHTML = 'Please enter your email.';
+        makeAlertBox('Please enter your email.');
     } else {
         var x = {'email': email, 'date': date, 'film': filmName, 'time': filmTime, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
         const JSONx = JSON.stringify(x);
@@ -140,8 +139,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
                 formSlideChangeFunction();
             }
         }).catch((response) => {
-            document.getElementById('alertBox').style.display = 'Block';
-            document.getElementById('alertMessage').innerHTML = 'Disconnection from server - please wait for reconnection...';
+            makeAlertBox('Disconnection from server - please wait for reconnection...');
         })
     }
 })}
@@ -153,7 +151,6 @@ function assignSearchBar() {
         if (document.getElementById('topBarSearchInput').value.includes('@')) {
             const bookingResponse = await fetch(rootUrl + `Bookings/${userEmail}`);
             const bookingText = await bookingResponse.text();
-            console.log(bookingText)
             var bookingArray = JSON.parse(bookingText);
             var filmTime, tempScreen;
             if (bookingArray[0] == 'False') {
@@ -176,8 +173,7 @@ function assignSearchBar() {
             document.getElementById('bookingSearchModal').style.display = 'Block';
             document.getElementById('topBarSearchInput').value = '';
         } else {
-            document.getElementById('alertBox').style.display = 'Block';
-            document.getElementById('alertMessage').innerHTML = 'Please enter a valid email.';
+            makeAlertBox('Please enter a valid email.')
         }
         
     })
