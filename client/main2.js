@@ -121,9 +121,9 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     } else {
         var x = {'email': email, 'date': date, 'film': filmName, 'time': filmTime, 'noAdults': nAdults, 'noChild': nChildren, 'firstName': firstName, 'surname': surname}
         const JSONx = JSON.stringify(x);
-        document.getElementById('bookingForm').reset();
-        formSlide = 0;
-        formSlideChangeFunction();
+        // document.getElementById('bookingForm').reset();
+        // formSlide = 0;
+        // formSlideChangeFunction();
         const formSubmission = await fetch(rootUrl + 'Bookings/MakeABooking', {
             method: 'POST',
             headers: {
@@ -135,10 +135,13 @@ document.getElementById('bookingForm').addEventListener('submit', async function
                 document.getElementById('line1').innerHTML = 'You are booked to go see ' + filmName + ' at ' + filmTime;
                 document.getElementById('line2').innerHTML = tempScreen
                 document.getElementById('bookingModal').style.display = 'Block';
+                document.getElementById('bookingForm').reset();
+                formSlide = 0;
+                formSlideChangeFunction();
             }
         }).catch((response) => {
-            alert('Disconnection from server - please wait for reconnection...')
-            console.log(response.status)
+            document.getElementById('alertBox').style.display = 'Block';
+            document.getElementById('alertMessage').innerHTML = 'Disconnection from server - please wait for reconnection...';
         })
     }
 })}
@@ -188,5 +191,6 @@ function callerFunction() {
     assignForm();
     assignSearchBar();
 }
-
+ 
 document.addEventListener('DOMContentLoaded', callerFunction);
+
