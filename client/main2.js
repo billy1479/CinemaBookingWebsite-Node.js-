@@ -1,13 +1,14 @@
 const rootUrl = 'http://127.0.0.1:8090/';
 
-let socket = io();
-socket.on('disconnect', () => {
-    makeAlertBox('Disconnected from server - please wait for reconnection')
-    document.getElementById('closeAlert').style.display = 'None';
-});
-socket.on('connect', () => {
-    document.getElementById('alertBox').style.display = 'None';
-});
+// Doesn't work on some PCs
+// let socket = io();
+// socket.on('disconnect', () => {
+//     makeAlertBox('Disconnected from server - please wait for reconnection')
+//     document.getElementById('closeAlert').style.display = 'None';
+// });
+// socket.on('connect', () => {
+//     document.getElementById('alertBox').style.display = 'None';
+// });
 
 async function loadCurrentFilms () {
     const currentFilmsObject = await fetch(rootUrl + 'currentFilms');
