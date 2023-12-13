@@ -9,7 +9,7 @@ const upcomingFilmsFile = './client/Data/upcoming.json';
 
 app.use(express.json());
 const path = require('path');
-app.use(express.static(path.join(__dirname, 'client/index.html')));
+app.use(express.static(path.join(__dirname, 'client')));
 
 const bookings = require(bookingsFile);
 const currentFilms = require(currentFilmsFile);
