@@ -1,4 +1,4 @@
-const rootUrl = 'http://127.0.0.1:8090/';
+const rootUrl = 'https://https://wscinemawebsite.azurewebsites.net/';
 
 // Doesn't work on some PCs
 // let socket = io();

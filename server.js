@@ -2,7 +2,7 @@ const app = require('./app.js');
 const http = require('http');
 const myServer = http.createServer(app);
 const { Server } = require('socket.io');
-const port = 8090;
+const port = 8080;
 const mySocket = new Server(myServer);
 
 myServer.listen(port, () => {
