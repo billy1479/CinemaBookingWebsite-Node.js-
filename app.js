@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const cors = require('cors')
 
 const bookingsFile = './client/Data/bookings.json';
 const currentFilmsFile = './client/Data/currentFilms.json';
@@ -10,6 +11,8 @@ const upcomingFilmsFile = './client/Data/upcoming.json';
 app.use(express.json());
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'client')));
+
+app.use(cors())
 
 const bookings = require(bookingsFile);
 const currentFilms = require(currentFilmsFile);
